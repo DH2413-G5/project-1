@@ -10,5 +10,6 @@
     </a>
 </p>
 
-# Project 1 (Group 5, DH2413 Advanced Graphics and Interaction)
+# Project 1
+##  Group 5, DH2413 Advanced Graphics and Interaction
 This repository is contains Project 1 for the course DH2413 Advanced Graphics and Interaction 2023 at KTH Royal Institute of Technology.

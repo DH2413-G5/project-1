@@ -44,6 +44,9 @@ This repository is contains Project 1 for the course *DH2413 Advanced Graphics a
 [*List collaborators/team members. You should also include links to their GitHub profiles and social media too.*]
 <a href="https://github.com/gustafssonlinnea"><img src="https://avatars.githubusercontent.com/u/70338667?v=4" width="25" height="25" style="vertical-align:middle;margin:0px 5px" alt="Linnéa Gustafsson" align="left"/></a> [Linnéa Gustafsson](https://github.com/gustafssonlinnea)
 
+<a href="https://github.com/JackyL56"><img src="https://avatars.githubusercontent.com/u/22663725" width="25" height="25" style="vertical-align:middle;margin:0px 5px" alt="Jacky Liu" align="left"/></a> [Jacky Liu](https://github.com/JackyL56)
+
+
 [*Fill in rest of members*]
 
 

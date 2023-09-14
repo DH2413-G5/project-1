@@ -148,6 +148,7 @@ MonoBehaviour:
   - {fileID: -5764507927577775972}
   m_renderMode: 1
   m_depthSubmissionMode: 0
+  versionChanged: 0
 --- !u!114 &-4016379913600022200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +447,7 @@ MonoBehaviour:
   - {fileID: 576465190696063491}
   m_renderMode: 1
   m_depthSubmissionMode: 0
+  versionChanged: 0
 --- !u!114 &1018699022587677737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,6 +543,7 @@ MonoBehaviour:
   features: []
   m_renderMode: 1
   m_depthSubmissionMode: 0
+  versionChanged: 0
 --- !u!114 &2524920227189903129
 MonoBehaviour:
   m_ObjectHideFlags: 0

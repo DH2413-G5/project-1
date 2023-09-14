@@ -48,6 +48,7 @@ Library: D:\Unity Projects\Submergency\Temp\BurstOutput\tempburstlibs\arm64-v8a\
 --assembly-defines=Unity.RenderPipeline.Universal.ShaderLibrary;
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
+--assembly-defines=Unity.TerrainTools;
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.XR.CoreUtils;
 --assembly-defines=Unity.XR.Hands;
@@ -161,6 +162,7 @@ Library: D:\Unity Projects\Submergency\Temp\BurstOutput\tempburstlibs\arm64-v8a\
 --assembly-defines=Unity.RenderPipeline.Universal.ShaderLibrary;
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
+--assembly-defines=Unity.TerrainTools;
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.XR.CoreUtils;
 --assembly-defines=Unity.XR.Hands;

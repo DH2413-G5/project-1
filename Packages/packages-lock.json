@@ -64,6 +64,15 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.postprocessing": {
+      "version": "3.2.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "14.0.8",
       "depth": 1,
@@ -276,6 +285,16 @@
         "com.unity.xr.core-utils": "2.1.1"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.verasl.water-system": {
+      "version": "file:com.verasl.water-system",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.mathematics": "1.1.0",
+        "com.unity.burst": "1.2.3",
+        "com.unity.render-pipelines.universal": "7.4.1"
+      }
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.122070506, g: 0.32984275, b: 0.37694615, a: 1}
+  m_IndirectSpecularColor: {r: 0.122070685, g: 0.3298425, b: 0.37694767, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9594,10 +9594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b72e569195ebc4abd69c4a95ec0a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swimForce: 2
+  swimForce: 80
   dragForce: 1
-  minForce: 0
-  minTimeBetweenStrokes: 0
+  minForce: 0.1
+  minTimeBetweenStrokes: 0.5
   leftControllerSwimReference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   leftControllerVelocity: {fileID: 5322236291394212789, guid: c348712bda248c246b8c49b3db54643f,
@@ -9633,7 +9633,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1968818524
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10283,12 +10283,12 @@ MonoBehaviour:
       m_Name: Position
       m_Type: 0
       m_ExpectedControlType: Vector3
-      m_Id: 
+      m_Id: e87c8d13-4606-4e8c-8855-24f6614080fb
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 
+        m_Id: bd5a6430-1ab0-4f8d-b417-7e92aed8b4dd
         m_Path: <XRHMD>/centerEyePosition
         m_Interactions: 
         m_Processors: 
@@ -10311,12 +10311,12 @@ MonoBehaviour:
       m_Name: Rotation
       m_Type: 0
       m_ExpectedControlType: Quaternion
-      m_Id: 
+      m_Id: b70d3d98-bb8a-416a-b9aa-dc1c0b7cc758
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 
+        m_Id: c94a99ec-9f86-4dc8-827d-b32579b8e272
         m_Path: <XRHMD>/centerEyeRotation
         m_Interactions: 
         m_Processors: 
@@ -10339,12 +10339,12 @@ MonoBehaviour:
       m_Name: Tracking State
       m_Type: 0
       m_ExpectedControlType: Integer
-      m_Id: 
+      m_Id: 17f92b90-d97c-493f-ad13-7b74dc7517eb
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 
+        m_Id: 3065c6f7-d744-4450-bff5-2eb6ddec36ab
         m_Path: <XRHMD>/trackingState
         m_Interactions: 
         m_Processors: 

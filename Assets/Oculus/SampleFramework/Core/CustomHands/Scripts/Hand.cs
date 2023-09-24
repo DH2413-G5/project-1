@@ -128,8 +128,8 @@ namespace OVRTouchSample
         // debouncing.
         private void UpdateCapTouchStates()
         {
-            m_isPointing = false;
-            m_isGivingThumbsUp = false;
+            m_isPointing = !OVRInput.Get(OVRInput.NearTouch.PrimaryIndexTrigger, m_controller);
+            m_isGivingThumbsUp = !OVRInput.Get(OVRInput.NearTouch.PrimaryThumbButtons, m_controller);
         }
 
         private void LateUpdate()
@@ -215,14 +215,7 @@ namespace OVRTouchSample
             // Flex
             // blend between open hand and fully closed fist
             float flex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
-            if (flex > 0.5f) // 如果grab按键被按下
-            {
-                m_animator.SetFloat(m_animParamIndexFlex, 0f); // 设置flex为0，表示手掌展开
-            }
-            else
-            {
-                m_animator.SetFloat(m_animParamIndexFlex, 1); // 设置flex为1，表示手掌闭合
-            }
+            m_animator.SetFloat(m_animParamIndexFlex, flex);
 
             // Point
             bool canPoint = !grabbing || grabPose.AllowPointing;

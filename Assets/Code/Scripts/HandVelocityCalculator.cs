@@ -77,41 +77,48 @@ public class HandVelocityCalculator : MonoBehaviour
         }
     }
 
-    public (float leftVelocity, float rightVelocity) GetWristVelocities()
+    public (Vector3 leftVelocityVector, Vector3 rightVelocityVector) GetWristVelocities()
     {
         float deltaTime = Time.time - _lastUpdateTime;
 
         // Calculate left hand's velocity
-        float leftVelocity = ComputeHandWristRootVelocity(LeftHand, LeftJointDeltaProvider, deltaTime);
+        Vector3 leftVelocityVector = ComputeHandWristRootVelocity(LeftHand, LeftJointDeltaProvider, deltaTime);
 
         // Calculate right hand's velocity
-        float rightVelocity = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);
+        Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);
 
         _lastUpdateTime = Time.time;
 
-        return (leftVelocity, rightVelocity);
+        return (leftVelocityVector, rightVelocityVector);
     }
 
-    private float ComputeHandWristRootVelocity(IHand hand, IJointDeltaProvider jointDeltaProvider, float deltaTime)
+
+    private Vector3 ComputeHandWristRootVelocity(IHand hand, IJointDeltaProvider jointDeltaProvider, float deltaTime)
     {
         if (hand.GetRootPose(out Pose rootPose) &&
             hand.GetJointPose(HandJointId.HandWristRoot, out Pose curPose) &&
             jointDeltaProvider.GetPositionDelta(HandJointId.HandWristRoot, out Vector3 worldDeltaDirection))
         {
             Vector3 palmDirection = rootPose.up;  // This assumes that the up direction of the root pose is the direction perpendicular to the palm.
-            float velocityMagnitude = worldDeltaDirection.magnitude / deltaTime;
         
-            // Project velocity onto the palm direction.
-            float component = Vector3.Dot(worldDeltaDirection.normalized, palmDirection);
-            /*Debug.Log($"Vector3: {palmDirection}");*/
+            // Convert position delta to velocity by dividing by deltaTime.
+            Vector3 worldVelocity = worldDeltaDirection / deltaTime;
             
-            // Multiply the component by the velocity magnitude.
-            float palmComponentVelocity = velocityMagnitude * component;
+            // Project velocity onto the palm direction.
+            float component = Vector3.Dot(worldVelocity, palmDirection);
+            /*Debug.Log("component:"+component);*/
+            if (component<0)
+            {
+                component = Mathf.Sqrt(-component) * -1; 
+            }
+            // Get the velocity vector in the palm direction.
+            Vector3 palmVelocity = component * palmDirection.normalized;
 
-            // Return the velocity component in the palm direction or 0 if its absolute value is less than 0.1.
-            return palmComponentVelocity;
+            // Return the velocity vector in the palm direction or a zero vector if its magnitude is less than 0.1.
+            return palmVelocity;
         }
 
-        return 0.0f;  // Return 0 if data is unavailable
+        return Vector3.zero;  // Return a zero vector if data is unavailable
     }
+
 }

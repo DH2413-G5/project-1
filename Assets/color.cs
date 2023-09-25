@@ -7,22 +7,50 @@ public class color : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
-    
-    public void ChangeRedEvent()
+
+    public void ChangeActiveColor()
     {
-        GetComponent<MeshRenderer>().material.color = Color.red; // 更改为红色
+        Color customColor = new Color(85f / 255f, 167f / 255f, 246f / 255f);
+        // 获取SkinnedMeshRenderer组件
+        SkinnedMeshRenderer skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+
+        // 确保获取到了组件
+        if (skinnedMeshRenderer)
+        {
+            // 遍历所有材质并查找名为"Color Top"的属性
+            foreach (Material mat in skinnedMeshRenderer.materials)
+            {
+                if (mat.HasProperty("_ColorTop"))
+                {
+                    mat.SetColor("_ColorTop", customColor);
+                }
+            }
+        }
     }
-    
-    public void ChangeGreenEvent()
+
+    public void ChangeNormalColor()
     {
-        GetComponent<MeshRenderer>().material.color = Color.green; // 更改为红色
+        Color customColor = new Color(50f / 255f, 52f / 255f, 54f / 255f);
+        // 获取SkinnedMeshRenderer组件
+        SkinnedMeshRenderer skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+
+        // 确保获取到了组件
+        if (skinnedMeshRenderer)
+        {
+            // 遍历所有材质并查找名为"Color Top"的属性
+            foreach (Material mat in skinnedMeshRenderer.materials)
+            {
+                if (mat.HasProperty("_ColorTop"))
+                {
+                    mat.SetColor("_ColorTop", customColor);
+                }
+            }
+        }
     }
 }

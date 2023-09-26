@@ -14127,6 +14127,8 @@ GameObject:
   - component: {fileID: 1125629757}
   - component: {fileID: 1125629756}
   - component: {fileID: 1125629755}
+  - component: {fileID: 1125629758}
+  - component: {fileID: 1125629759}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -14143,7 +14145,7 @@ Transform:
   m_GameObject: {fileID: 1125629753}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 70, z: 17.2}
+  m_LocalPosition: {x: 0, y: 236.8, z: 17.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14162,10 +14164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b72e569195ebc4abd69c4a95ec0a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swimForce: 5
+  swimForce: 4
   dragForce: 1
-  minVelocity: 0.4
-  maxForce: 100
+  gravity: 1
+  maxForce: 40
 --- !u!54 &1125629756
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14177,7 +14179,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: -10.5, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -14186,12 +14188,12 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1125629757
 MonoBehaviour:
@@ -14209,6 +14211,54 @@ MonoBehaviour:
   _rightHand: {fileID: 1269212759}
   _leftJointDeltaProvider: {fileID: 2127746153}
   _rightJointDeltaProvider: {fileID: 187755476}
+  playerRigidbody: {fileID: 1125629756}
+  minVelocity: 0.3
+--- !u!136 &1125629758
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125629753}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 4.5
+  m_Height: 30
+  m_Direction: 1
+  m_Center: {x: 0, y: -10.5, z: 0}
+--- !u!136 &1125629759
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125629753}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1125904171
 GameObject:
   m_ObjectHideFlags: 0
@@ -26257,7 +26307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swimForce: 80
   dragForce: 1
-  minVelocity: 0.2
+  gravity: 1
   maxForce: 100
 --- !u!54 &1968818523
 Rigidbody:

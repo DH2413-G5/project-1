@@ -27,6 +27,10 @@ public class HandVelocityCalculator : MonoBehaviour
 
     private JointDeltaConfig _leftJointDeltaConfig;
     private JointDeltaConfig _rightJointDeltaConfig;
+    
+    public Rigidbody playerRigidbody;
+    [Tooltip("Minimum velocity needed for the player to start swimming.")]
+    public float minVelocity = 0.3f;
 
     private float _lastUpdateTime;
 
@@ -100,25 +104,40 @@ public class HandVelocityCalculator : MonoBehaviour
             jointDeltaProvider.GetPositionDelta(HandJointId.HandWristRoot, out Vector3 worldDeltaDirection))
         {
             Vector3 palmDirection = rootPose.up;  // This assumes that the up direction of the root pose is the direction perpendicular to the palm.
-        
+    
             // Convert position delta to velocity by dividing by deltaTime.
             Vector3 worldVelocity = worldDeltaDirection / deltaTime;
-            
-            // Project velocity onto the palm direction.
-            float component = Vector3.Dot(worldVelocity, palmDirection);
-            /*Debug.Log("component:"+component);*/
-            if (component<0)
+            Vector3 playerVelocity = playerRigidbody.velocity;
+            Vector3 relativeHandVelocity = worldVelocity - playerVelocity;
+
+            // If the magnitude of relativeHandVelocity is below the threshold, return zero vector
+            if (relativeHandVelocity.magnitude < minVelocity)
             {
-                component = Mathf.Sqrt(-component) * -1; 
+                return Vector3.zero;
             }
+        
+            // Project velocity onto the palm direction.
+            float component = Vector3.Dot(relativeHandVelocity, palmDirection);
+        
+            if (component < 0)
+            {
+                component = Mathf.Pow(-component, 0.25f) * -1; 
+            }
+        
             // Get the velocity vector in the palm direction.
             Vector3 palmVelocity = component * palmDirection.normalized;
+        
+            // Draw the worldVelocity vector in the Game view for visualization.
+            Debug.DrawRay(curPose.position, relativeHandVelocity, Color.green);
 
-            // Return the velocity vector in the palm direction or a zero vector if its magnitude is less than 0.1.
+            // Draw the palm direction in the Game view for visualization.
+            Debug.DrawRay(curPose.position, palmDirection, Color.red);
+            Debug.Log("playerVelocity"+playerVelocity);
             return palmVelocity;
         }
 
         return Vector3.zero;  // Return a zero vector if data is unavailable
     }
+
 
 }

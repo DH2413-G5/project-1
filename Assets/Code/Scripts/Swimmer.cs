@@ -13,10 +13,10 @@ public class Swimmer : MonoBehaviour
     [SerializeField] private float swimForce = 5f;
     [Tooltip("Determines the drag force of the water, slowing down the player.")]
     [SerializeField] private float dragForce = 1f;
-    [Tooltip("Minimum velocity needed for the player to start swimming.")]
-    [SerializeField] private float minVelocity = 0.2f;
+    [Tooltip("Make the player drop naturally in the water.")]
+    [SerializeField] private float gravity = 1f;
     [Tooltip("Maximum force applied to rigibody at once.")]
-    [SerializeField] private float maxForce = 100f;
+    [SerializeField] private float maxForce = 60f;
     
     private HandVelocityCalculator _calculator;
     private Rigidbody _rigidbody;
@@ -39,9 +39,8 @@ public class Swimmer : MonoBehaviour
     private void FixedUpdate()
     {
         var velocities = _calculator.GetWristVelocities();
-        Vector3 leftHandVelocity = velocities.leftVelocityVector.magnitude > minVelocity ? velocities.leftVelocityVector : Vector3.zero;
-        Debug.Log(velocities.leftVelocityVector.sqrMagnitude);
-        Vector3 rightHandVelocity = velocities.rightVelocityVector.magnitude > minVelocity ? velocities.rightVelocityVector : Vector3.zero;
+        Vector3 leftHandVelocity = velocities.leftVelocityVector;
+        Vector3 rightHandVelocity = velocities.rightVelocityVector;
         Vector3 localVelocity = leftHandVelocity + rightHandVelocity;
         
         // Inverting velocity: moving forward by pulling backwards.
@@ -54,7 +53,6 @@ public class Swimmer : MonoBehaviour
 
             _rigidbody.AddForce(forceToAdd, ForceMode.Acceleration);
             
-            Debug.Log(localVelocity);
             Debug.Log("Swimming");
         }
 
@@ -62,6 +60,8 @@ public class Swimmer : MonoBehaviour
         if (_rigidbody.velocity.sqrMagnitude > 0.01f) {
             _rigidbody.AddForce(-_rigidbody.velocity * dragForce, ForceMode.Acceleration);
         }
+        // Applying a constant downward force for gravity.
+        _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
     }
     
     public void LeftHandSwim()

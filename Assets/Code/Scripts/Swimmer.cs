@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+namespace Code.Scripts;
+
 [RequireComponent(typeof(Rigidbody))]
 public class Swimmer : MonoBehaviour
 {
-
+    
     [Header("Values")]
     [Tooltip("Determines the speed at which the player swims though the environment.")]
     [SerializeField] private float swimForce = 5f;
@@ -15,7 +17,7 @@ public class Swimmer : MonoBehaviour
     [SerializeField] private float dragForce = 1f;
     [Tooltip("Make the player drop naturally in the water.")]
     [SerializeField] private float gravity = 1f;
-    [Tooltip("Maximum force applied to rigibody at once.")]
+    [Tooltip("Maximum force applied to rigidbody at once.")]
     [SerializeField] private float maxForce = 60f;
     
     private HandVelocityCalculator _calculator;
@@ -54,6 +56,7 @@ public class Swimmer : MonoBehaviour
             _rigidbody.AddForce(forceToAdd, ForceMode.Acceleration);
             
             Debug.Log("Swimming");
+
         }
 
         // Apply water drag force if player is moving

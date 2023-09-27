@@ -9388,7 +9388,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 771297977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af7e0b3177ff0344693124c8bab9cc90, type: 3}
+  m_Script: {fileID: 11500000, guid: 06ff9b32e634dfe4a9d4808c249d3754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &771297983
@@ -14392,7 +14392,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 771297975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af7e0b3177ff0344693124c8bab9cc90, type: 3}
+  m_Script: {fileID: 11500000, guid: 06ff9b32e634dfe4a9d4808c249d3754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1098248653 stripped
@@ -17383,7 +17383,7 @@ MonoBehaviour:
   _leftJointDeltaProvider: {fileID: 623183275}
   _rightJointDeltaProvider: {fileID: 165563405}
   playerRigidbody: {fileID: 1281332735}
-  minVelocity: 0.3
+  minVelocity: 0.45
 --- !u!4 &1281332737
 Transform:
   m_ObjectHideFlags: 0

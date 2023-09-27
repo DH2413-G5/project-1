@@ -92,7 +92,8 @@ public class HandVelocityCalculator : MonoBehaviour
         Vector3 leftVelocityVector = ComputeHandWristRootVelocity(LeftHand, LeftJointDeltaProvider, deltaTime);
 
         // Calculate right hand's velocity
-        Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);
+        Vector3 rightVelocityVector = Vector3.zero;
+        /*Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);*/
 
         Debug.Log("Left Hand Velocity: " + leftVelocityVector + ", Right Hand Velocity: " + rightVelocityVector);
 
@@ -141,7 +142,17 @@ public class HandVelocityCalculator : MonoBehaviour
             Debug.DrawRay(curPose.position, palmDirection, Color.red);
             // Debugging info
             Debug.Log(
-                $"worldDeltaDirection: {worldDeltaDirection}, deltaTime: {deltaTime}, worldVelocity: {worldVelocity}, playerVelocity: {playerVelocity}, relativeHandVelocity: {relativeHandVelocity}, component: {component}, palmVelocity: {palmVelocity}");
+                $"worldDeltaDirection: ({worldDeltaDirection.x:F7}, {worldDeltaDirection.y:F7}, {worldDeltaDirection.z:F7}), " +
+                $"deltaTime: {deltaTime}, " +
+                $"worldVelocity: ({worldVelocity.x:F7}, {worldVelocity.y:F7}, {worldVelocity.z:F7}), " +
+                $"worldVelocity.magnitude: {worldVelocity.magnitude}, " +
+                $"playerVelocity: ({playerVelocity.x:F7}, {playerVelocity.y:F7}, {playerVelocity.z:F7}), " +
+                $"relativeHandVelocity: {relativeHandVelocity}, " +
+                $"component: {component}, " +
+                $"palmVelocity: {palmVelocity}"
+            );
+
+
 
             return palmVelocity;
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Swimmer : MonoBehaviour
+public class SwimmerHandTracking : MonoBehaviour
 {
 
     [Header("Values")]

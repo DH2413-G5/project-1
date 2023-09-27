@@ -17291,15 +17291,15 @@ GameObject:
   - component: {fileID: 1281332737}
   - component: {fileID: 1281332736}
   - component: {fileID: 1281332735}
-  - component: {fileID: 1281332734}
   - component: {fileID: 1281332733}
+  - component: {fileID: 1281332738}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1281332733
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17323,22 +17323,6 @@ CapsuleCollider:
   m_Height: 30
   m_Direction: 1
   m_Center: {x: 0, y: -10.5, z: -4.5}
---- !u!114 &1281332734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281332732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b72e569195ebc4abd69c4a95ec0a85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swimForce: 4
-  dragForce: 1
-  gravity: 1
-  maxForce: 40
 --- !u!54 &1281332735
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17400,6 +17384,22 @@ Transform:
   - {fileID: 1587772672}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281332738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281332732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ffeab3c7ade4247af1e6ab1ccec3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swimForce: 4
+  dragForce: 1
+  gravity: 1
+  maxForce: 40
 --- !u!1 &1282866912
 GameObject:
   m_ObjectHideFlags: 0
@@ -17451,7 +17451,7 @@ MonoBehaviour:
   _whenSelected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1281332734}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Swimmer, Assembly-CSharp
         m_MethodName: RightHandSwim
         m_Mode: 1
@@ -17478,7 +17478,7 @@ MonoBehaviour:
   _whenUnselected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1281332734}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Swimmer, Assembly-CSharp
         m_MethodName: RightHandStopSwim
         m_Mode: 1
@@ -24502,7 +24502,7 @@ MonoBehaviour:
   _whenSelected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1281332734}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Swimmer, Assembly-CSharp
         m_MethodName: LeftHandSwim
         m_Mode: 1
@@ -24529,7 +24529,7 @@ MonoBehaviour:
   _whenUnselected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1281332734}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Swimmer, Assembly-CSharp
         m_MethodName: LeftHandStopSwim
         m_Mode: 1
@@ -27096,8 +27096,8 @@ GameObject:
   - component: {fileID: 1968818527}
   - component: {fileID: 1968818526}
   - component: {fileID: 1968818525}
+  - component: {fileID: 1968818529}
   - component: {fileID: 1968818523}
-  - component: {fileID: 1968818522}
   - component: {fileID: 1968818528}
   m_Layer: 6
   m_Name: Player2
@@ -27105,23 +27105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1968818522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968818521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b72e569195ebc4abd69c4a95ec0a85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swimForce: 80
-  dragForce: 1
-  gravity: 1
-  maxForce: 60
+  m_IsActive: 1
 --- !u!54 &1968818523
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27148,7 +27132,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1968818525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27219,6 +27203,31 @@ CapsuleCollider:
   m_Height: 2.523056
   m_Direction: 1
   m_Center: {x: 0, y: 0.761528, z: 0}
+--- !u!114 &1968818529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968818521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b72e569195ebc4abd69c4a95ec0a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swimForce: 80
+  dragForce: 1
+  minForce: 1
+  minTimeBetweenStrokes: 0.2
+  leftControllerSwimReference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  leftControllerVelocity: {fileID: 5322236291394212789, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  rightControllerSwimReference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  rightControllerVelocity: {fileID: 4138654227340230279, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  trackingReference: {fileID: 1968818527}
 --- !u!1 &1971475771 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 1ef63c9e36fd9ae47867f4bb79c7cbb3,

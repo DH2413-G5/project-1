@@ -44,15 +44,16 @@ public class Swimmer : MonoBehaviour
         Vector3 localVelocity = leftHandVelocity + rightHandVelocity;
         
         // Inverting velocity: moving forward by pulling backwards.
-        localVelocity *= -1;
-        if (_leftHandSwim || _rightHandSwim)
+
+        if ((_leftHandSwim || _rightHandSwim) && localVelocity.magnitude > 0)
         {
+            localVelocity *= -1;
             Vector3 forceToAdd = localVelocity * (localVelocity.sqrMagnitude * swimForce);
             // Clamping the force to ensure it doesn't exceed maxForce
             forceToAdd = Vector3.ClampMagnitude(forceToAdd, maxForce);
 
             _rigidbody.AddForce(forceToAdd, ForceMode.Acceleration);
-            
+            Debug.Log("forceToAdd：" + forceToAdd);
             Debug.Log("Swimming");
         }
 

@@ -5,30 +5,33 @@ using Oculus.Interaction.PoseDetection;
 
 public class HandVelocityCalculator : MonoBehaviour
 {
-    [Tooltip("Left hand's IHand implementation.")]
-    [SerializeField, Interface(typeof(IHand))]
+    [Tooltip("Left hand's IHand implementation.")] [SerializeField, Interface(typeof(IHand))]
     private UnityEngine.Object _leftHand;
+
     private IHand LeftHand;
 
-    [Tooltip("Right hand's IHand implementation.")]
-    [SerializeField, Interface(typeof(IHand))]
+    [Tooltip("Right hand's IHand implementation.")] [SerializeField, Interface(typeof(IHand))]
     private UnityEngine.Object _rightHand;
+
     private IHand RightHand;
 
     [Tooltip("Left hand's JointDeltaProvider for caching joint deltas.")]
     [SerializeField, Interface(typeof(IJointDeltaProvider))]
     private UnityEngine.Object _leftJointDeltaProvider;
+
     private IJointDeltaProvider LeftJointDeltaProvider;
 
     [Tooltip("Right hand's JointDeltaProvider for caching joint deltas.")]
     [SerializeField, Interface(typeof(IJointDeltaProvider))]
     private UnityEngine.Object _rightJointDeltaProvider;
+
     private IJointDeltaProvider RightJointDeltaProvider;
 
     private JointDeltaConfig _leftJointDeltaConfig;
     private JointDeltaConfig _rightJointDeltaConfig;
-    
+
     public Rigidbody playerRigidbody;
+
     [Tooltip("Minimum velocity needed for the player to start swimming.")]
     public float minVelocity = 0.3f;
 
@@ -91,6 +94,8 @@ public class HandVelocityCalculator : MonoBehaviour
         // Calculate right hand's velocity
         Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);
 
+        Debug.Log("Left Hand Velocity: " + leftVelocityVector + ", Right Hand Velocity: " + rightVelocityVector);
+
         _lastUpdateTime = Time.time;
 
         return (leftVelocityVector, rightVelocityVector);
@@ -103,8 +108,10 @@ public class HandVelocityCalculator : MonoBehaviour
             hand.GetJointPose(HandJointId.HandWristRoot, out Pose curPose) &&
             jointDeltaProvider.GetPositionDelta(HandJointId.HandWristRoot, out Vector3 worldDeltaDirection))
         {
-            Vector3 palmDirection = rootPose.up;  // This assumes that the up direction of the root pose is the direction perpendicular to the palm.
-    
+            Vector3
+                palmDirection =
+                    rootPose.up; // This assumes that the up direction of the root pose is the direction perpendicular to the palm.
+
             // Convert position delta to velocity by dividing by deltaTime.
             Vector3 worldVelocity = worldDeltaDirection / deltaTime;
             Vector3 playerVelocity = playerRigidbody.velocity;
@@ -115,29 +122,30 @@ public class HandVelocityCalculator : MonoBehaviour
             {
                 return Vector3.zero;
             }
-        
+
             // Project velocity onto the palm direction.
             float component = Vector3.Dot(relativeHandVelocity, palmDirection);
-        
+
             if (component < 0)
             {
-                component = Mathf.Pow(-component, 0.25f) * -1; 
+                component = 0;
             }
-        
+
             // Get the velocity vector in the palm direction.
             Vector3 palmVelocity = component * palmDirection.normalized;
-        
+
             // Draw the worldVelocity vector in the Game view for visualization.
             Debug.DrawRay(curPose.position, relativeHandVelocity, Color.green);
 
             // Draw the palm direction in the Game view for visualization.
             Debug.DrawRay(curPose.position, palmDirection, Color.red);
-            Debug.Log("playerVelocity"+playerVelocity);
+            // Debugging info
+            Debug.Log(
+                $"worldDeltaDirection: {worldDeltaDirection}, deltaTime: {deltaTime}, worldVelocity: {worldVelocity}, playerVelocity: {playerVelocity}, relativeHandVelocity: {relativeHandVelocity}, component: {component}, palmVelocity: {palmVelocity}");
+
             return palmVelocity;
         }
 
-        return Vector3.zero;  // Return a zero vector if data is unavailable
+        return Vector3.zero; // Return a zero vector if data is unavailable
     }
-
-
 }

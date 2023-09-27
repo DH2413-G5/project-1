@@ -17545,7 +17545,7 @@ MonoBehaviour:
   _hand: {fileID: 771297979}
   _fingerFeatureStateProvider: {fileID: 771297983}
   _shapes:
-  - {fileID: 11400000, guid: 42aeb3525a489f548bec8daee5f481ef, type: 2}
+  - {fileID: 11400000, guid: fcb01e0b94b77fc468e91865efba8b59, type: 2}
 --- !u!1001 &1282874139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24596,7 +24596,7 @@ MonoBehaviour:
   _hand: {fileID: 771297980}
   _fingerFeatureStateProvider: {fileID: 771297981}
   _shapes:
-  - {fileID: 11400000, guid: 42aeb3525a489f548bec8daee5f481ef, type: 2}
+  - {fileID: 11400000, guid: fcb01e0b94b77fc468e91865efba8b59, type: 2}
 --- !u!4 &1814670445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1963767354698790190, guid: 437c63d1629eec54aa4b5e5502fd70dc,

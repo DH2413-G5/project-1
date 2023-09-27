@@ -10,13 +10,13 @@ public class Swimmer : MonoBehaviour
 
     [Header("Values")]
     [Tooltip("Determines the speed at which the player swims though the environment.")]
-    [SerializeField] private float swimForce = 5f;
+    [SerializeField] private float swimForce;
     [Tooltip("Determines the drag force of the water, slowing down the player.")]
-    [SerializeField] private float dragForce = 1f;
+    [SerializeField] private float dragForce;
     [Tooltip("Make the player drop naturally in the water.")]
-    [SerializeField] private float gravity = 1f;
+    [SerializeField] private float gravity ;
     [Tooltip("Maximum force applied to rigibody at once.")]
-    [SerializeField] private float maxForce = 60f;
+    [SerializeField] private float maxForce;
     
     private HandVelocityCalculator _calculator;
     private Rigidbody _rigidbody;

@@ -33,7 +33,7 @@ public class HandVelocityCalculator : MonoBehaviour
     public Rigidbody playerRigidbody;
 
     [Tooltip("Minimum velocity needed for the player to start swimming.")]
-    public float minVelocity = 0.3f;
+    public float minVelocity;
 
     private float _lastUpdateTime;
 

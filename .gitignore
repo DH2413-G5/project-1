@@ -10,7 +10,7 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 Assets/AssetStoreTools*
-[Aa]ssets/[Oo]culus/*
+[Aa]ssets/[Oo]culus/*/*
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -82,3 +82,4 @@ crashlytics-build.properties
 
 #Include used assets from Oculus package
 ![Aa]ssets/[Oo]culus/Interaction
+![Aa]ssets/[Oo]culus/VR/Prefabs

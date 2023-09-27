@@ -60,7 +60,7 @@ public class Swimmer : MonoBehaviour
         if (_rigidbody.velocity.sqrMagnitude > 0.01f) {
             _rigidbody.AddForce(-_rigidbody.velocity * dragForce, ForceMode.Acceleration);
         }
-        // Applying a constant downward force for gravity.
+        // Apply constant downward force for gravity.
         _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
     }
     

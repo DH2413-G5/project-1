@@ -244,6 +244,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3371963396825626027, guid: b86895f0839182648a64de8f8cdcda9b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371963396825626027, guid: b86895f0839182648a64de8f8cdcda9b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651300205894069102, guid: b86895f0839182648a64de8f8cdcda9b,
+        type: 3}
+      propertyPath: m_text
+      value: "SWIMMING INSTRUCTIONS\n1. Position the controllers in front of you.\n2.
+        Hold the large handle buttons and move the controllers towards you. \n3.
+        Release the buttons and repeat."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651300205894069102, guid: b86895f0839182648a64de8f8cdcda9b,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9006580020964487204, guid: b86895f0839182648a64de8f8cdcda9b,
         type: 3}
       propertyPath: m_Name
@@ -257,7 +279,7 @@ PrefabInstance:
     - target: {fileID: 9129575064877697682, guid: b86895f0839182648a64de8f8cdcda9b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9129575064877697682, guid: b86895f0839182648a64de8f8cdcda9b,
         type: 3}

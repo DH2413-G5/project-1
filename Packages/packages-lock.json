@@ -16,6 +16,13 @@
       "source": "builtin",
       "dependencies": {}
     },
+    "com.unity.autolod": {
+      "version": "https://github.com/Unity-Technologies/AutoLOD.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9492bc0620ea02944745c41e1f51b241580e342c"
+    },
     "com.unity.burst": {
       "version": "1.8.8",
       "depth": 1,
@@ -116,31 +123,6 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       }
     },
-    "com.unity.render-pipelines.high-definition": {
-      "version": "14.0.8",
-      "depth": 0,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.mathematics": "1.2.4",
-        "com.unity.burst": "1.8.4",
-        "com.unity.modules.video": "1.0.0",
-        "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.imageconversion": "1.0.0",
-        "com.unity.modules.terrain": "1.0.0",
-        "com.unity.render-pipelines.core": "14.0.8",
-        "com.unity.shadergraph": "14.0.8",
-        "com.unity.visualeffectgraph": "14.0.8",
-        "com.unity.render-pipelines.high-definition-config": "14.0.8"
-      }
-    },
-    "com.unity.render-pipelines.high-definition-config": {
-      "version": "14.0.8",
-      "depth": 1,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.render-pipelines.core": "14.0.8"
-      }
-    },
     "com.unity.render-pipelines.universal": {
       "version": "14.0.8",
       "depth": 0,
@@ -217,15 +199,6 @@
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
-      }
-    },
-    "com.unity.visualeffectgraph": {
-      "version": "14.0.8",
-      "depth": 1,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.shadergraph": "14.0.8",
-        "com.unity.render-pipelines.core": "14.0.8"
       }
     },
     "com.unity.visualscripting": {
@@ -305,6 +278,13 @@
         "com.unity.xr.management": "4.2.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.whinarn.unitymeshsimplifier": {
+      "version": "https://github.com/Whinarn/UnityMeshSimplifier.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d741912bfeaad8da4fe0f258f4f3eefe1fe7b3f3"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

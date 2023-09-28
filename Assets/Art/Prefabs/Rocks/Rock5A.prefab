@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4806852614155041946}
   - component: {fileID: 8459534304443172948}
   - component: {fileID: 658600217062674341}
+  - component: {fileID: -8573359041989687771}
   m_Layer: 0
   m_Name: Rock5A
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3940965838933940184}
   m_Father: {fileID: 0}
@@ -219,6 +220,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalRenderers:
   - {fileID: 2300000}
+--- !u!65 &-8573359041989687771
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.543486, y: 14.249304, z: 8.400587}
+  m_Center: {x: 0.32375193, y: 5.1909046, z: 0.27581155}
 --- !u!1 &1431226646254330160
 GameObject:
   m_ObjectHideFlags: 0

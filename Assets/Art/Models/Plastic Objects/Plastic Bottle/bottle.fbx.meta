@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b35770f52025494aa7f28d26502f411
+guid: ecfa65982bc1428499f9d8505d4b7178
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 7439e3a9ed387294dab8157a7e5e09bc, type: 2}
+      name: Transparent plastic_
+    second: {fileID: 2100000, guid: 26b2cd5b0478df34eba708b918a903b9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

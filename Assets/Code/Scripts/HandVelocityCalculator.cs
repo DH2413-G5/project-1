@@ -2,6 +2,7 @@ using Oculus.Interaction;
 using UnityEngine;
 using Oculus.Interaction.Input;
 using Oculus.Interaction.PoseDetection;
+using Unity.VisualScripting;
 
 public class HandVelocityCalculator : MonoBehaviour
 {
@@ -92,7 +93,8 @@ public class HandVelocityCalculator : MonoBehaviour
         Vector3 leftVelocityVector = ComputeHandWristRootVelocity(LeftHand, LeftJointDeltaProvider, deltaTime);
 
         // Calculate right hand's velocity
-        Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);
+        /*Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);*/
+        Vector3 rightVelocityVector = Vector3.zero;
 
         Debug.Log("Left Hand Velocity: " + leftVelocityVector + ", Right Hand Velocity: " + rightVelocityVector);
 
@@ -124,18 +126,18 @@ public class HandVelocityCalculator : MonoBehaviour
             Vector3 relativeHandVelocity = worldVelocity - playerVelocity;
 
             // If the magnitude of relativeHandVelocity is below the threshold, return zero vector
-            if (relativeHandVelocity.magnitude < minVelocity)
+            /*if (relativeHandVelocity.magnitude < minVelocity)
             {
                 return Vector3.zero;
-            }
+            }*/
 
             // Project velocity onto the palm direction.
             float component = Vector3.Dot(relativeHandVelocity, palmDirection);
 
-            if (component < 0)
+            /*if (component < 0)
             {
                 component = 0;
-            }
+            }*/
 
             // Get the velocity vector in the palm direction.
             Vector3 palmVelocity = component * palmDirection.normalized;
@@ -147,6 +149,7 @@ public class HandVelocityCalculator : MonoBehaviour
             Debug.DrawRay(curPose.position, palmDirection, Color.red);
             // Debugging info
             Debug.Log(
+                $"rootPose.position: ({rootPose.position.x:F7}, {rootPose.position.y:F7}, {rootPose.position.z:F7}), " +
                 $"worldDeltaDirection: ({worldDeltaDirection.x:F7}, {worldDeltaDirection.y:F7}, {worldDeltaDirection.z:F7}), " +
                 $"deltaTime: {deltaTime}, " +
                 $"worldVelocity: ({worldVelocity.x:F7}, {worldVelocity.y:F7}, {worldVelocity.z:F7}), " +

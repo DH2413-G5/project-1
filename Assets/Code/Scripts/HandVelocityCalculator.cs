@@ -37,6 +37,8 @@ public class HandVelocityCalculator : MonoBehaviour
     public float minVelocity;
 
     private float _lastUpdateTime;
+    private Vector3 _previousRootPosePosition = Vector3.zero;
+    private bool _isPreviousRootPoseSet = false;
 
     private void Awake()
     {
@@ -106,61 +108,58 @@ public class HandVelocityCalculator : MonoBehaviour
 
     private Vector3 ComputeHandWristRootVelocity(IHand hand, IJointDeltaProvider jointDeltaProvider, float deltaTime)
     {
-        if (hand.GetRootPose(out Pose rootPose) &&
-            hand.GetJointPose(HandJointId.HandWristRoot, out Pose curPose) &&
-            jointDeltaProvider.GetPositionDelta(HandJointId.HandWristRoot, out Vector3 worldDeltaDirection))
+        if (hand.GetRootPose(out Pose rootPose))
         {
             Vector3 palmDirection;
             if (hand.Handedness == Handedness.Right)
             {
-                palmDirection = -rootPose.up; 
+                palmDirection = -rootPose.up;
             }
             else
             {
                 palmDirection = rootPose.up;
             }
 
-            // Convert position delta to velocity by dividing by deltaTime.
-            Vector3 worldVelocity = worldDeltaDirection / deltaTime;
+            Vector3 worldVelocity = Vector3.zero;
+
+            // Calculate worldVelocity if we have previous root pose position
+            if (_isPreviousRootPoseSet)
+            {
+                worldVelocity = (rootPose.position - _previousRootPosePosition) / deltaTime;
+            }
+            _previousRootPosePosition = rootPose.position;
+            _isPreviousRootPoseSet = true;
+            
             Vector3 playerVelocity = playerRigidbody.velocity;
             Vector3 relativeHandVelocity = worldVelocity - playerVelocity;
 
             // If the magnitude of relativeHandVelocity is below the threshold, return zero vector
-            /*if (relativeHandVelocity.magnitude < minVelocity)
+            if (relativeHandVelocity.magnitude < minVelocity)
             {
                 return Vector3.zero;
-            }*/
+            }
 
             // Project velocity onto the palm direction.
             float component = Vector3.Dot(relativeHandVelocity, palmDirection);
 
-            /*if (component < 0)
+            if (component < 0)
             {
                 component = 0;
-            }*/
+            }
 
             // Get the velocity vector in the palm direction.
             Vector3 palmVelocity = component * palmDirection.normalized;
 
-            // Draw the worldVelocity vector in the Game view for visualization.
-            Debug.DrawRay(curPose.position, relativeHandVelocity, Color.green);
-
-            // Draw the palm direction in the Game view for visualization.
-            Debug.DrawRay(curPose.position, palmDirection, Color.red);
             // Debugging info
             Debug.Log(
-                $"rootPose.position: ({rootPose.position.x:F7}, {rootPose.position.y:F7}, {rootPose.position.z:F7}), " +
-                $"worldDeltaDirection: ({worldDeltaDirection.x:F7}, {worldDeltaDirection.y:F7}, {worldDeltaDirection.z:F7}), " +
                 $"deltaTime: {deltaTime}, " +
-                $"worldVelocity: ({worldVelocity.x:F7}, {worldVelocity.y:F7}, {worldVelocity.z:F7}), " +
-                $"worldVelocity.magnitude: {worldVelocity.magnitude}, " +
-                $"playerVelocity: ({playerVelocity.x:F7}, {playerVelocity.y:F7}, {playerVelocity.z:F7}), " +
-                $"palmDirection: ({palmDirection.x:F7}, {palmDirection.y:F7}, {palmDirection.z:F7}), " +
-                $"relativeHandVelocity: {relativeHandVelocity}, " +
+                $"worldVelocity: ({worldVelocity.x:F7}, {worldVelocity.y:F7}, {worldVelocity.z:F5}), " +
+                $"playerVelocity: ({playerVelocity.x:F5}, {playerVelocity.y:F5}, {playerVelocity.z:F5}), " +
+                $"palmDirection: ({palmDirection.x:F5}, {palmDirection.y:F5}, {palmDirection.z:F5}), " +
+                $"relativeHandVelocity: ({relativeHandVelocity.x:F5}, {relativeHandVelocity.y:F5}, {relativeHandVelocity.z:F5}), " +
                 $"component: {component}, " +
                 $"palmVelocity: {palmVelocity}"
             );
-
 
 
             return palmVelocity;

@@ -40,7 +40,7 @@ namespace Code.Scripts
         private void OnTriggerEnter(Collider player)
         {
             // boundaryWarningPopup.SetActive(false);
-            Debug.Log("Player Entered Area!");
+            // Debug.Log("Player Entered Area!");
         }
 
 
@@ -84,8 +84,8 @@ namespace Code.Scripts
         {
             var pushBackForce = CalculatePushBackForce(player);
             player.gameObject.GetComponent<Rigidbody>().AddForce(pushBackForce,ForceMode.Acceleration);
-            Debug.Log("Player: " + player.gameObject.name + " Rigidbody: " + player.gameObject.GetComponent<Rigidbody>());
-            Debug.Log("Push Back Force: " + pushBackForce + " Applied");
+            // Debug.Log("Player: " + _gameObject.name + " Rigidbody: " + player.gameObject.GetComponent<Rigidbody>());
+            // Debug.Log("Push Back Force: " + pushBackForce + " Applied");
             
         }
     }

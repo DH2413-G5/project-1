@@ -16,8 +16,6 @@
       "source": "builtin",
       "dependencies": {}
     },
-<<<<<<< Updated upstream
-=======
     "com.unity.autolod": {
       "version": "https://github.com/Unity-Technologies/AutoLOD.git",
       "depth": 0,
@@ -25,7 +23,6 @@
       "dependencies": {},
       "hash": "9492bc0620ea02944745c41e1f51b241580e342c"
     },
->>>>>>> Stashed changes
     "com.unity.burst": {
       "version": "1.8.8",
       "depth": 1,

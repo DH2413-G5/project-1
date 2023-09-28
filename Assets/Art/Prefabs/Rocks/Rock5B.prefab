@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3745442550976811453}
   - component: {fileID: 2126719149297090323}
   - component: {fileID: 1816034260091183989}
+  - component: {fileID: 3565941467869358167}
   m_Layer: 0
   m_Name: Rock5B
   m_TagString: Untagged
@@ -32,8 +33,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3572561257052173252}
   m_Father: {fileID: 0}
@@ -219,6 +220,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalRenderers:
   - {fileID: 2300000}
+--- !u!65 &3565941467869358167
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.8243566, y: 1.9912728, z: 3.4650528}
+  m_Center: {x: 0.41456348, y: 0.509955, z: 0.0076652765}
 --- !u!1 &3153993667312069718
 GameObject:
   m_ObjectHideFlags: 0

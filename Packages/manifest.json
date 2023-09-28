@@ -2,6 +2,10 @@
   "dependencies": {
     "com.singularitygroup.hotreload": "git+https://gitlab.hotreload.net/root/hot-reload-releases.git#1.12.5",
     "com.unity.2d.sprite": "1.0.0",
+<<<<<<< Updated upstream
+=======
+    "com.unity.autolod": "https://github.com/Unity-Technologies/AutoLOD.git",
+>>>>>>> Stashed changes
     "com.unity.collab-proxy": "2.0.7",
     "com.unity.ide.rider": "3.0.25",
     "com.unity.ide.visualstudio": "2.0.18",
@@ -21,6 +25,7 @@
     "com.unity.xr.interaction.toolkit": "2.5.0",
     "com.unity.xr.management": "4.4.0",
     "com.unity.xr.oculus": "4.0.0",
+    "com.whinarn.unitymeshsimplifier": "https://github.com/Whinarn/UnityMeshSimplifier.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

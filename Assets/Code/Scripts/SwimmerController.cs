@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 namespace Code.Scripts
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Swimmer : MonoBehaviour
+    public class SwimmerController : MonoBehaviour
     {
         [Header("Values")]
         [Tooltip("Determines the speed at which the player swims though the environment.")]

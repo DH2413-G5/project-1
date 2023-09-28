@@ -48,7 +48,7 @@ public class Swimmer : MonoBehaviour
         if ((_leftHandSwim || _rightHandSwim) && localVelocity.magnitude > 0)
         {
             localVelocity *= -1;
-            Vector3 forceToAdd = localVelocity * (localVelocity.sqrMagnitude * swimForce);
+            Vector3 forceToAdd = localVelocity  * swimForce;
             // Clamping the force to ensure it doesn't exceed maxForce
             forceToAdd = Vector3.ClampMagnitude(forceToAdd, maxForce);
 

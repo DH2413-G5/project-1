@@ -92,8 +92,7 @@ public class HandVelocityCalculator : MonoBehaviour
         Vector3 leftVelocityVector = ComputeHandWristRootVelocity(LeftHand, LeftJointDeltaProvider, deltaTime);
 
         // Calculate right hand's velocity
-        Vector3 rightVelocityVector = Vector3.zero;
-        /*Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);*/
+        Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);
 
         Debug.Log("Left Hand Velocity: " + leftVelocityVector + ", Right Hand Velocity: " + rightVelocityVector);
 
@@ -109,9 +108,15 @@ public class HandVelocityCalculator : MonoBehaviour
             hand.GetJointPose(HandJointId.HandWristRoot, out Pose curPose) &&
             jointDeltaProvider.GetPositionDelta(HandJointId.HandWristRoot, out Vector3 worldDeltaDirection))
         {
-            Vector3
-                palmDirection =
-                    rootPose.up; // This assumes that the up direction of the root pose is the direction perpendicular to the palm.
+            Vector3 palmDirection;
+            if (hand.Handedness == Handedness.Right)
+            {
+                palmDirection = -rootPose.up; 
+            }
+            else
+            {
+                palmDirection = rootPose.up;
+            }
 
             // Convert position delta to velocity by dividing by deltaTime.
             Vector3 worldVelocity = worldDeltaDirection / deltaTime;
@@ -147,6 +152,7 @@ public class HandVelocityCalculator : MonoBehaviour
                 $"worldVelocity: ({worldVelocity.x:F7}, {worldVelocity.y:F7}, {worldVelocity.z:F7}), " +
                 $"worldVelocity.magnitude: {worldVelocity.magnitude}, " +
                 $"playerVelocity: ({playerVelocity.x:F7}, {playerVelocity.y:F7}, {playerVelocity.z:F7}), " +
+                $"palmDirection: ({palmDirection.x:F7}, {palmDirection.y:F7}, {palmDirection.z:F7}), " +
                 $"relativeHandVelocity: {relativeHandVelocity}, " +
                 $"component: {component}, " +
                 $"palmVelocity: {palmVelocity}"

@@ -17335,9 +17335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b72e569195ebc4abd69c4a95ec0a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swimForce: 4
+  swimForce: 5
   dragForce: 1
-  gravity: 1
+  gravity: 1.5
   maxForce: 40
 --- !u!54 &1281332735
 Rigidbody:
@@ -17383,7 +17383,7 @@ MonoBehaviour:
   _leftJointDeltaProvider: {fileID: 623183275}
   _rightJointDeltaProvider: {fileID: 165563405}
   playerRigidbody: {fileID: 1281332735}
-  minVelocity: 0.45
+  minVelocity: 0.3
 --- !u!4 &1281332737
 Transform:
   m_ObjectHideFlags: 0

@@ -10,18 +10,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ecfa65982bc1428499f9d8505d4b7178,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ecfa65982bc1428499f9d8505d4b7178,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ecfa65982bc1428499f9d8505d4b7178,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ecfa65982bc1428499f9d8505d4b7178,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecfa65982bc1428499f9d8505d4b7178,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecfa65982bc1428499f9d8505d4b7178,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.95
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ecfa65982bc1428499f9d8505d4b7178,
         type: 3}
@@ -62,6 +77,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bottle_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: ecfa65982bc1428499f9d8505d4b7178,
+        type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.14466673
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: ecfa65982bc1428499f9d8505d4b7178,
+        type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.078214034
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -587,11 +587,11 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 5855751016681519659}
-  - screenRelativeHeight: 0.26360992
+  - screenRelativeHeight: 0.19758521
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3277255797371072371}
-  - screenRelativeHeight: 0.2
+  - screenRelativeHeight: 0.0435579
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4802552264751820100}
@@ -609,16 +609,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalRenderers:
-  - {fileID: 5515403154493144883}
+  - {fileID: 0}
 --- !u!4 &4479337924894943143 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3a571b6662108d74eaf2e9fcd75b1d8e,
-    type: 3}
-  m_PrefabInstance: {fileID: 4153294541152125004}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &5515403154493144883 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8442510506162454399, guid: 3a571b6662108d74eaf2e9fcd75b1d8e,
     type: 3}
   m_PrefabInstance: {fileID: 4153294541152125004}
   m_PrefabAsset: {fileID: 0}

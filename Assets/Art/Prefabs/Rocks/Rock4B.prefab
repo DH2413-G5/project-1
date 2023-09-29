@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  - component: {fileID: 6500000}
   - component: {fileID: 4918649749520884319}
   - component: {fileID: 631069826630757466}
   - component: {fileID: 2660460722854180963}
+  - component: {fileID: 8276817499409187597}
   m_Layer: 0
   m_Name: Rock4B
   m_TagString: Untagged
@@ -88,27 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6500000
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.19, y: 1.62, z: 2.26}
-  m_Center: {x: -0.09005731, y: 0.4182105, z: 0.035725772}
 --- !u!114 &4918649749520884319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,11 +170,11 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.168
+  - screenRelativeHeight: 0.11978959
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 5270111261817923855}
-  - screenRelativeHeight: 0.073
+  - screenRelativeHeight: 0.04723128
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 7836514486007276061}
@@ -218,6 +197,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalRenderers:
   - {fileID: 2300000}
+--- !u!135 &8276817499409187597
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.4574244
+  m_Center: {x: 0.0024451017, y: 0.19038796, z: -0.002453804}
 --- !u!1 &545918052982156684
 GameObject:
   m_ObjectHideFlags: 0

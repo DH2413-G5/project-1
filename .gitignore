@@ -82,4 +82,6 @@ crashlytics-build.properties
 
 #Include used assets from Oculus package
 ![Aa]ssets/[Oo]culus/Interaction
+![Aa]ssets/[Oo]culus/SampleFramework/*
 ![Aa]ssets/[Oo]culus/VR/*
+

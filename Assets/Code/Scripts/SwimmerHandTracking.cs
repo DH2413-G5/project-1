@@ -17,7 +17,7 @@ public class SwimmerHandTracking : MonoBehaviour
     [SerializeField] private float gravity ;
     [Tooltip("Maximum force applied to rigibody at once.")]
     [SerializeField] private float maxForce;
-    
+
     private HandVelocityCalculator _calculator;
     private Rigidbody _rigidbody;
     private bool _leftHandSwim = false;
@@ -53,8 +53,8 @@ public class SwimmerHandTracking : MonoBehaviour
             forceToAdd = Vector3.ClampMagnitude(forceToAdd, maxForce);
 
             _rigidbody.AddForce(forceToAdd, ForceMode.Acceleration);
-            Debug.Log("forceToAdd：" + forceToAdd);
-            Debug.Log("Swimming");
+            /*Debug.Log("forceToAdd：" + forceToAdd);
+            Debug.Log("Swimming");*/
         }
 
         // Apply water drag force if player is moving

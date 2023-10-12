@@ -14,7 +14,7 @@ namespace Code.Scripts.Checkpoints
         private Checkpoint _currentCheckpoint;
 
         
-        private void Awake()
+        private void Start()
         {
             Assert.IsTrue(checkpoints.Count >= 1);
             ValidateCheckpointOrder();

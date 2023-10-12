@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,7 +25,10 @@ namespace Code.Scripts
         [SerializeField] private InputActionReference rightControllerVelocity;
         [Tooltip("Determines which reference to use to apply the velocity to.")]
         [SerializeField] private Transform trackingReference; // I.e. direction where the head or hands point.
-    
+
+        [SerializeField] private GameObject LeftController;
+        [SerializeField] private GameObject RightController;
+        
         private Rigidbody _rigidbody;
         // Helps calculate time between strokes.
         private float _cooldownTimer;
@@ -58,17 +63,31 @@ namespace Code.Scripts
                 if (localVelocity.sqrMagnitude > minForce * minForce) {
                     // Calculating the world velocity and apply it to the rigidbody
                     Vector3 worldVelocity = trackingReference.TransformDirection(localVelocity);
-                    Debug.Log("Velocity Added: " + worldVelocity*swimForce);
                     _rigidbody.AddForce(worldVelocity * swimForce, ForceMode.Acceleration);
                     // Resetting cooldown for strokes
                     _cooldownTimer = 0f;
                 }
             }
 
+            
+            
             // Apply water drag force if player is moving
             if (_rigidbody.velocity.sqrMagnitude > 0.01f) {
                 _rigidbody.AddForce(-_rigidbody.velocity * dragForce, ForceMode.Acceleration);
             }
         }
+
+        private void Start()
+        {
+            // InvokeRepeating("PrintPositionAndRotation", 1f, 0.5f);
+        }
+
+        private void PrintPositionAndRotation()
+        {
+            Debug.Log("Left Controller Pos: " +LeftController.transform.position + " Rot: " + LeftController.transform.rotation.eulerAngles);
+            Debug.Log("Right Controller Pos: " +RightController.transform.position + " Rot: " + RightController.transform.rotation.eulerAngles);
+        }
+        
+        
     }
 }

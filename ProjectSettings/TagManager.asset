@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: AboveWater
+    uniqueID: 4283790281
+    locked: 0
+  - name: UnderWater
+    uniqueID: 2114002595
+    locked: 0

@@ -1964,6 +1964,8 @@ MonoBehaviour:
   rightControllerVelocity: {fileID: 4138654227340230279, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   trackingReference: {fileID: 3380528466680053079}
+  LeftController: {fileID: 0}
+  RightController: {fileID: 0}
 --- !u!136 &2501518882543364785
 CapsuleCollider:
   m_ObjectHideFlags: 0

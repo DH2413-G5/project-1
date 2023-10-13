@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Code.Scripts
 {
@@ -11,20 +12,17 @@ namespace Code.Scripts
         [Tooltip("Determines the drag force of the water, slowing down the player.")]
         [SerializeField] private float dragForce = 1f;
         [Tooltip("Minimum force needed for the player to start swimming.")]
-        [SerializeField] private float minForce;
-        [Tooltip("Limits the amount of strokes per second.")]
-        [SerializeField] private float minTimeBetweenStrokes;
+        [SerializeField] private float minVelocity;
         [Tooltip("Make the player drop naturally in the water.")]
         [SerializeField] private float gravity ;
         [Tooltip("Maximum force applied to rigibody at once.")]
         [SerializeField] private float maxForce;
-    
-        [Header("References")]
-        [Tooltip("Determines which reference to use to apply the velocity to.")]
-        [SerializeField] private Transform trackingReference;
 
+        private Vector3 defaultPalmDirectionLeft = new Vector3(1, 0, 0);
+        private Vector3 defaultPalmDirectionRight = new Vector3(-1, 0, 0);
+
+        
         private Rigidbody _rigidbody;
-        private float _cooldownTimer;
 
         private void Awake() {
             _rigidbody = GetComponent<Rigidbody>();
@@ -33,39 +31,55 @@ namespace Code.Scripts
         }
         
         private void FixedUpdate() {
-        
-            _cooldownTimer += Time.fixedDeltaTime;
 
             // Check if the Grab button on Oculus Touch controllers is pressed
             bool leftHandGrabbed = OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.LTouch);
-            bool rightHandGrabbed = OVRInput.Get(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.RTouch);
+            bool rightHandGrabbed = OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch);
     
             Vector3 localVelocity = Vector3.zero;
 
-            if (leftHandGrabbed) {
-                // Get the left controller's velocity relative to the player
+            if (leftHandGrabbed) 
+            {
+                Quaternion currentLeftRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch);
+                Vector3 currentPalmDirectionLeft = currentLeftRotation * defaultPalmDirectionLeft;
+                
                 Vector3 leftHandAbsVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LTouch);
-                localVelocity += leftHandAbsVelocity;
-                Debug.Log("Left Hand Absolute Velocity: " + leftHandAbsVelocity);
+                float componentLeft = Vector3.Dot(leftHandAbsVelocity, currentPalmDirectionLeft);
+                if (componentLeft < 0)
+                {
+                    componentLeft = 0;
+                }
+                localVelocity += currentPalmDirectionLeft.normalized * componentLeft;
             }
-    
-            if (rightHandGrabbed) {
-                // Get the right controller's velocity relative to the player
+
+            Debug.Log("rightHandGrabbed"+rightHandGrabbed);
+            if (rightHandGrabbed) 
+            {
+                Quaternion currentRightRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
+                Vector3 currentPalmDirectionRight = currentRightRotation * defaultPalmDirectionRight;
+
                 Vector3 rightHandAbsVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
-                localVelocity += rightHandAbsVelocity;
-                Debug.Log("Right Hand Absolute Velocity: " + rightHandAbsVelocity);
+                float componentRight = Vector3.Dot(rightHandAbsVelocity, currentPalmDirectionRight);
+                Debug.Log("componentRight: " + componentRight);
+                if (componentRight < 0)
+                {
+                    componentRight = 0;
+                }
+                localVelocity += currentPalmDirectionRight.normalized * componentRight;
             }
             // Print the velocities to Unity Console
             Debug.Log("Local Velocity: " + localVelocity);
             localVelocity *= -1;
 
-            if (_cooldownTimer > minTimeBetweenStrokes && localVelocity.sqrMagnitude > minForce * minForce) {
-                Vector3 worldVelocity = trackingReference.TransformDirection(localVelocity);
+            if (localVelocity.sqrMagnitude > minVelocity) {
+                
+                // Print the values to the Unity console
+                Debug.Log("Local Velocity: " + localVelocity.ToString());
+                
                 // Clamping the force to ensure it doesn't exceed maxForce
-                Vector3 forceToAdd = worldVelocity  * swimForce;
+                Vector3 forceToAdd = localVelocity  * swimForce;
                 forceToAdd = Vector3.ClampMagnitude(forceToAdd, maxForce);
                 _rigidbody.AddForce(forceToAdd, ForceMode.Acceleration);
-                _cooldownTimer = 0f;
             }
 
             if (_rigidbody.velocity.sqrMagnitude > 0.01f) {
@@ -75,5 +89,8 @@ namespace Code.Scripts
             // Apply constant downward force for gravity.
             _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
         }
+
     }
+    
+    
 }

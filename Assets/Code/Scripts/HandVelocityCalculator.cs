@@ -7,29 +7,14 @@ using Unity.VisualScripting;
 public class HandVelocityCalculator : MonoBehaviour
 {
     [Tooltip("Left hand's IHand implementation.")] [SerializeField, Interface(typeof(IHand))]
-    private UnityEngine.Object _leftHand;
+    private Object _leftHand;
 
     private IHand LeftHand;
 
     [Tooltip("Right hand's IHand implementation.")] [SerializeField, Interface(typeof(IHand))]
-    private UnityEngine.Object _rightHand;
+    private Object _rightHand;
 
     private IHand RightHand;
-
-    [Tooltip("Left hand's JointDeltaProvider for caching joint deltas.")]
-    [SerializeField, Interface(typeof(IJointDeltaProvider))]
-    private UnityEngine.Object _leftJointDeltaProvider;
-
-    private IJointDeltaProvider LeftJointDeltaProvider;
-
-    [Tooltip("Right hand's JointDeltaProvider for caching joint deltas.")]
-    [SerializeField, Interface(typeof(IJointDeltaProvider))]
-    private UnityEngine.Object _rightJointDeltaProvider;
-
-    private IJointDeltaProvider RightJointDeltaProvider;
-
-    private JointDeltaConfig _leftJointDeltaConfig;
-    private JointDeltaConfig _rightJointDeltaConfig;
 
     public Rigidbody playerRigidbody;
 
@@ -47,46 +32,7 @@ public class HandVelocityCalculator : MonoBehaviour
         LeftHand = _leftHand as IHand;
         RightHand = _rightHand as IHand;
 
-        LeftJointDeltaProvider = _leftJointDeltaProvider as IJointDeltaProvider;
-        RightJointDeltaProvider = _rightJointDeltaProvider as IJointDeltaProvider;
-
         _lastUpdateTime = Time.time;
-    }
-
-    private void Start()
-    {
-        // Register joints for both hands
-        _leftJointDeltaConfig = new JointDeltaConfig(GetInstanceID(), new[] { HandJointId.HandWristRoot });
-        _rightJointDeltaConfig = new JointDeltaConfig(GetInstanceID(), new[] { HandJointId.HandWristRoot });
-
-        LeftJointDeltaProvider.RegisterConfig(_leftJointDeltaConfig);
-        RightJointDeltaProvider.RegisterConfig(_rightJointDeltaConfig);
-    }
-
-    private void OnEnable()
-    {
-        if (_leftJointDeltaConfig != null)
-        {
-            LeftJointDeltaProvider.RegisterConfig(_leftJointDeltaConfig);
-        }
-
-        if (_rightJointDeltaConfig != null)
-        {
-            RightJointDeltaProvider.RegisterConfig(_rightJointDeltaConfig);
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (_leftJointDeltaConfig != null)
-        {
-            LeftJointDeltaProvider.UnRegisterConfig(_leftJointDeltaConfig);
-        }
-
-        if (_rightJointDeltaConfig != null)
-        {
-            RightJointDeltaProvider.UnRegisterConfig(_rightJointDeltaConfig);
-        }
     }
 
     public (Vector3 leftVelocityVector, Vector3 rightVelocityVector) GetWristVelocities()
@@ -94,10 +40,10 @@ public class HandVelocityCalculator : MonoBehaviour
         float deltaTime = Time.time - _lastUpdateTime;
 
         // Calculate left hand's velocity
-        Vector3 leftVelocityVector = ComputeHandWristRootVelocity(LeftHand, LeftJointDeltaProvider, deltaTime);
+        Vector3 leftVelocityVector = ComputeHandWristRootVelocity(LeftHand, deltaTime);
 
         // Calculate right hand's velocity
-        Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, RightJointDeltaProvider, deltaTime);
+        Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, deltaTime);
 
         /*Debug.Log("Left Hand Velocity: " + leftVelocityVector + ", Right Hand Velocity: " + rightVelocityVector);*/
 
@@ -107,7 +53,7 @@ public class HandVelocityCalculator : MonoBehaviour
     }
 
 
-    private Vector3 ComputeHandWristRootVelocity(IHand hand, IJointDeltaProvider jointDeltaProvider, float deltaTime)
+    private Vector3 ComputeHandWristRootVelocity(IHand hand, float deltaTime)
     {
         if (hand.GetRootPose(out Pose rootPose))
         {
@@ -153,7 +99,7 @@ public class HandVelocityCalculator : MonoBehaviour
             }
 
             // Get the velocity vector in the palm direction.
-            Vector3 palmVelocity = component * palmDirection.normalized;
+            Vector3 palmVelocity = component * relativeHandVelocity.normalized;
 
             // Debugging info
             /*Debug.Log(

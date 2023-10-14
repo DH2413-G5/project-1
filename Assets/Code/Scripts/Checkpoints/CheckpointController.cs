@@ -24,16 +24,12 @@ namespace Code.Scripts.Checkpoints
 
         private void ValidateCheckpointOrder()
         {
-            const int startingCheckpoint = 0;
-            bool startingCheckpointExists = false;
-            foreach (var checkpoint in checkpoints.Where(checkpoint => checkpoint.CheckpointNumber == startingCheckpoint))
+            for (int i = 0; i < checkpoints.Count; i++)
             {
-                startingCheckpointExists = true;
-            }
-
-            if (!startingCheckpointExists)
-            { 
-                Debug.LogError("Error, no starting checkpoint. (checkpointNumber = 0)");
+                if (checkpoints[i].CheckpointNumber != i)
+                {
+                    Debug.LogError("Error: Checkpoints not in chronological Order! Checkpoint: "+ checkpoints[i].CheckpointNumber + " Expected: " + i);
+                }           
             }
         }
 

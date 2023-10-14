@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2764838984483524741}
   - component: {fileID: 785251780420904019}
-  - component: {fileID: 8591180355473773378}
+  - component: {fileID: 8270837162546804311}
   m_Layer: 0
   m_Name: Checkpoint0
   m_TagString: Untagged
@@ -55,7 +55,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3855182, y: 1.9146739, z: 0.19499783}
   m_Center: {x: -0.00924176, y: 0.01001507, z: 0.01866988}
---- !u!114 &8591180355473773378
+--- !u!114 &8270837162546804311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 730951638273033322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dceaea6c6e14b019c1ed4b47623da40, type: 3}
+  m_Script: {fileID: 11500000, guid: 23d0a3c0c9572234ba4c499215935b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   checkpointNumber: 0
@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 4752457369876416285, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}
       propertyPath: m_Name
-      value: Portal yellow
+      value: Portal
       objectReference: {fileID: 0}
     - target: {fileID: 8724466350249207100, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}

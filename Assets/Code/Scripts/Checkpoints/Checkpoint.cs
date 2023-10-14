@@ -9,8 +9,7 @@ namespace Code.Scripts.Checkpoints
         public UnityAction OnCheckpointReached;
 
         [SerializeField] private int checkpointNumber;
-        [SerializeField] private GameObject visuals;
-        private Collider _collider;
+        [SerializeField] protected GameObject visuals;
         
         public int CheckpointNumber => checkpointNumber;
         

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,6 +19,8 @@ namespace Code.Scripts
         [Tooltip("Maximum force applied to rigibody at once.")]
         [SerializeField] private float maxForce;
 
+        // private Vector3 defaultPalmDirectionLeft = new Vector3(1, 0, 0);
+        // private Vector3 defaultPalmDirectionRight = new Vector3(-1, 0, 0);
         private Vector3 defaultPalmDirectionLeft = new Vector3(1, 0, 0);
         private Vector3 defaultPalmDirectionRight = new Vector3(-1, 0, 0);
 
@@ -57,7 +60,8 @@ namespace Code.Scripts
             {
                 Quaternion currentRightRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
                 Vector3 currentPalmDirectionRight = currentRightRotation * defaultPalmDirectionRight;
-
+                Debug.Log("CurrentRightRotation " + currentRightRotation + " CurrentPalmDirection: " + currentPalmDirectionRight);
+                
                 Vector3 rightHandAbsVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
                 float componentRight = Vector3.Dot(rightHandAbsVelocity, currentPalmDirectionRight);
                 Debug.Log("componentRight: " + componentRight);
@@ -68,20 +72,22 @@ namespace Code.Scripts
                 localVelocity += currentPalmDirectionRight.normalized * componentRight;
             }
             // Print the velocities to Unity Console
-            Debug.Log("Local Velocity: " + localVelocity);
+            // Debug.Log("Local Velocity: " + localVelocity);
             localVelocity *= -1;
 
             if (localVelocity.sqrMagnitude > minVelocity) {
                 
                 // Print the values to the Unity console
-                Debug.Log("Local Velocity: " + localVelocity.ToString());
+                // Debug.Log("Local Velocity: " + localVelocity.ToString());
                 
                 // Clamping the force to ensure it doesn't exceed maxForce
                 Vector3 forceToAdd = localVelocity  * swimForce;
                 forceToAdd = Vector3.ClampMagnitude(forceToAdd, maxForce);
                 _rigidbody.AddForce(forceToAdd, ForceMode.Acceleration);
+                Debug.Log("Force added: " + forceToAdd);
+                
             }
-
+            
             if (_rigidbody.velocity.sqrMagnitude > 0.01f) {
                 _rigidbody.AddForce(-_rigidbody.velocity * dragForce, ForceMode.Acceleration);
             }
@@ -90,6 +96,15 @@ namespace Code.Scripts
             _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
         }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Vector3 RControllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
+            Gizmos.DrawLine(RControllerPosition, OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch)*Vector3.forward);
+            
+            // Debug.DrawLine(OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch), );
+            
+        }
     }
     
     

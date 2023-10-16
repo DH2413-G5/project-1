@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Initially set the child objects for player2 active and for player inactive, and set the controller state
-        ToggleChildObjects(handTrackingChildObjects, false);
-        ToggleChildObjects(controllerChildObjects, true);
+        /*ToggleChildObjects(handTrackingChildObjects, true);
+        ToggleChildObjects(controllerChildObjects, false);*/
         previousControllerState = IsOVRControllerConnected();
     }
 

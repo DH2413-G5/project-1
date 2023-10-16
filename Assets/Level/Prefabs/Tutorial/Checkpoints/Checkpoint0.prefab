@@ -90,6 +90,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6653848994803705496}
     m_Modifications:
+    - target: {fileID: 702519236074920596, guid: 1adc69946814a624598aefde9c886946,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 752707743322650701, guid: 1adc69946814a624598aefde9c886946,
         type: 3}
       propertyPath: m_Name
@@ -164,6 +169,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771207118886773867, guid: 1adc69946814a624598aefde9c886946,
+        type: 3}
+      propertyPath: m_text
+      value: While having both grip buttons pressed, perform a swimming motion with
+        your hands. Let go of the grip buttons before you pull your hands forward.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771207118886773867, guid: 1adc69946814a624598aefde9c886946,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771207118886773867, guid: 1adc69946814a624598aefde9c886946,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

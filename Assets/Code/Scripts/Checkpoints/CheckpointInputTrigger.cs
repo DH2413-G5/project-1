@@ -1,15 +1,22 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Code.Scripts.Checkpoints {
     public class CheckpointInputTrigger : Checkpoint {
         [SerializeField] private GameObject buttonsPressedTutorial;
         [SerializeField] private GameObject swimmingMotionTutorial;
-        
+
+        private Collider _collider;
         private int _currentStep;
         
-        private void Awake() {
+        private void Awake()
+        {
+            _collider = GetComponent<Collider>();
+            Assert.IsNotNull(_collider);
+            Assert.IsTrue(_collider.isTrigger);
+            
             swimmingMotionTutorial.SetActive(false);
         }
         
@@ -36,6 +43,11 @@ namespace Code.Scripts.Checkpoints {
         {
             // ADD SWIMMING DETECTION LOGIC
             OnCheckpointReached?.Invoke();
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            SwimDetection();
         }
     }
 }

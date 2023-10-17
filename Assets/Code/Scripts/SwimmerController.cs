@@ -1,4 +1,5 @@
 using System;
+using Oculus.Interaction.Input;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -69,6 +70,8 @@ namespace Code.Scripts
                 {
                     componentRight = 0;
                 }
+
+                
                 localVelocity += currentPalmDirectionRight.normalized * componentRight;
             }
             // Print the velocities to Unity Console
@@ -94,11 +97,14 @@ namespace Code.Scripts
             
             // Apply constant downward force for gravity.
             _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
+
+            
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
+            
             Vector3 RControllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
             Gizmos.DrawLine(RControllerPosition, OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch)*Vector3.forward);
             

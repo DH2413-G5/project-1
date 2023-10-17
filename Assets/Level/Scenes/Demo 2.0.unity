@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23352,6 +23352,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1901627773}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &677673300
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6897932208346153729, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 27.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea2425722b148384ba27f2a37caa5b88, type: 3}
 --- !u!1 &696175256
 GameObject:
   m_ObjectHideFlags: 0
@@ -42834,12 +42902,12 @@ GameObject:
   - component: {fileID: 1306004734}
   - component: {fileID: 1306004738}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1306004733
 Transform:
   m_ObjectHideFlags: 0
@@ -64162,6 +64230,7 @@ SceneRoots:
   - {fileID: 634364733}
   - {fileID: 1478875220}
   - {fileID: 1306004733}
+  - {fileID: 677673300}
   - {fileID: 737786095}
   - {fileID: 1719263421}
   - {fileID: 1082970678}

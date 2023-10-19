@@ -73,6 +73,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3392290922014965758, guid: ecfa65982bc1428499f9d8505d4b7178,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2419055695481423686, guid: 8bc4cb9d9c786444eb0e3c3bca7e639e,
+        type: 3}
+    - target: {fileID: -780626248043726675, guid: ecfa65982bc1428499f9d8505d4b7178,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5979642443606522937, guid: f3d8221373e39994e9ef83daae3a8894,
+        type: 3}
+    - target: {fileID: -89326726738243835, guid: ecfa65982bc1428499f9d8505d4b7178,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7127530117915494147, guid: 8bc4cb9d9c786444eb0e3c3bca7e639e,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: ecfa65982bc1428499f9d8505d4b7178,
         type: 3}
       propertyPath: m_Name
@@ -88,6 +106,12 @@ PrefabInstance:
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
       value: 0.078214034
       objectReference: {fileID: 0}
+    - target: {fileID: 6605061387755096757, guid: ecfa65982bc1428499f9d8505d4b7178,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4056122430746956780, guid: f3d8221373e39994e9ef83daae3a8894,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

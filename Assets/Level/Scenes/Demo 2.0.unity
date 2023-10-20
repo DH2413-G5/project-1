@@ -23360,6 +23360,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2877397095480611906, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877397095480611906, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975345308346539103, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246892412131167674, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070403109712349453, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: _renderPhysicsCapsules
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6897932208346153729, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: m_Name

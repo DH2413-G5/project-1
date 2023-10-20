@@ -180,6 +180,9 @@ public class OVRSkeleton : MonoBehaviour
 
     [SerializeField]
     private bool _enablePhysicsCapsules = false;
+    
+    [SerializeField]
+    private int _excludeLayerMask = 6;
 
     [SerializeField]
     private bool _applyBoneTranslations = true;
@@ -504,6 +507,9 @@ public class OVRSkeleton : MonoBehaviour
                 ccGO.transform.SetParent(rbGO.transform, false);
                 ccGO.transform.localPosition = p0;
                 ccGO.transform.localRotation = rot;
+                
+                // set layer to player so that it collides with the hand
+                ccGO.layer = _excludeLayerMask; 
             }
         }
     }

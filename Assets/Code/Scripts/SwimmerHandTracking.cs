@@ -64,7 +64,6 @@ public class SwimmerHandTracking : MonoBehaviour
             float angleBetween = Vector3.Angle(horizontalDirection, localVelocity);
             // Print the velocities to Unity Console
             // Debug.Log("Local Velocity: " + localVelocity);
-            localVelocity *= -1;
 
             if (angleBetween < limitedAngle)
             {

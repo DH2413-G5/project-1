@@ -12,14 +12,29 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // Initially set the child objects for player2 active and for player inactive, and set the controller state
-        previousControllerState = false;
+        InitializeInputDevice();   
     }
 
     void Update()
     {
-        bool currentControllerState = IsOVRControllerConnected();
+        UpdateInputDevice();
+    }
 
+    /**
+     * Function used to initialize the input devices. 
+     */
+    void InitializeInputDevice()
+    {
+        // This will force the first UpdateInputDevice function, thus initializing the input devices.
+        previousControllerState = !IsOVRControllerConnected();
+    }
+
+    /**
+     * Function used to check and update if the input devices change.
+     */
+    void UpdateInputDevice()
+    {
+        bool currentControllerState = IsOVRControllerConnected();
         // Only switch active state of child objects when the controller state changes
         if (currentControllerState != previousControllerState)
         {
@@ -28,16 +43,18 @@ public class GameManager : MonoBehaviour
                 // Toggle child objects active state
                 ToggleChildObjects(handTrackingChildObjects, false);
                 ToggleChildObjects(controllerChildObjects, true);
+                previousControllerState = false;
             }
             else
             {
                 // Toggle child objects active state
                 ToggleChildObjects(handTrackingChildObjects, true);
                 ToggleChildObjects(controllerChildObjects, false);
+                previousControllerState = true;
             }
-        }
 
-        previousControllerState = currentControllerState;
+            previousControllerState = currentControllerState;
+        }
     }
 
     void ToggleChildObjects(GameObject[] objects, bool state)

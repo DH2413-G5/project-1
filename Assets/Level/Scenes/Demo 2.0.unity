@@ -23370,6 +23370,11 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3654997376026102964, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: limitedAngle
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3975345308343204037, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: m_IsActive
@@ -23384,6 +23389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: swimForce
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183901350970820529, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: limitedAngle
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5246892412119762372, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
@@ -23423,7 +23433,7 @@ PrefabInstance:
     - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
@@ -23433,7 +23443,7 @@ PrefabInstance:
     - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.38268343
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
@@ -23448,7 +23458,7 @@ PrefabInstance:
     - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
@@ -42996,6 +43006,7 @@ MonoBehaviour:
   dragForce: 0.3
   gravity: 0.5
   maxForce: 40
+  limitedAngle: 0
 --- !u!54 &1306004737
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -43059,6 +43070,7 @@ MonoBehaviour:
   minVelocity: 0.3
   gravity: 0.5
   maxForce: 40
+  limitedAngle: 20
 --- !u!1 &1310087038
 GameObject:
   m_ObjectHideFlags: 0
@@ -45728,6 +45740,7 @@ MonoBehaviour:
   minVelocity: 0
   gravity: 1
   maxForce: 40
+  limitedAngle: 20
 --- !u!54 &1478875223
 Rigidbody:
   m_ObjectHideFlags: 0

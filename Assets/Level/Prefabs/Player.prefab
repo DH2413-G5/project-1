@@ -462,6 +462,7 @@ MonoBehaviour:
   minVelocity: 0.3
   gravity: 0.5
   maxForce: 40
+  limitedAngle: 20
 --- !u!114 &3654997376026102964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +479,7 @@ MonoBehaviour:
   dragForce: 0.3
   gravity: 0.5
   maxForce: 40
+  limitedAngle: 20
 --- !u!114 &2742195041433086371
 MonoBehaviour:
   m_ObjectHideFlags: 0

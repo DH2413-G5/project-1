@@ -18,6 +18,7 @@
  * limitations under the License.
  */
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -180,6 +181,12 @@ public class OVRSkeleton : MonoBehaviour
 
     [SerializeField]
     private bool _enablePhysicsCapsules = false;
+    
+    [SerializeField]
+    private int _colliderLayer = 6;
+
+    [SerializeField] 
+    private String[] _excludeLayerMask;
 
     [SerializeField]
     private bool _applyBoneTranslations = true;
@@ -274,6 +281,9 @@ public class OVRSkeleton : MonoBehaviour
         {
             Initialize();
         }
+        
+        // Initialize default exclude layers
+        _excludeLayerMask = new String[] { "Player", "Boundary" };
     }
 
     private bool ShouldInitialize()
@@ -499,11 +509,19 @@ public class OVRSkeleton : MonoBehaviour
                 capsule.CapsuleCollider.height = mag + _skeleton.BoneCapsules[i].Radius * 2.0f;
                 capsule.CapsuleCollider.direction = 0;
                 capsule.CapsuleCollider.center = Vector3.right * mag * 0.5f;
-
+                
+                // Add 
+                LayerMask excludeMask = LayerMask.GetMask(_excludeLayerMask);
+                capsule.CapsuleCollider.excludeLayers = excludeMask;
+                
                 GameObject ccGO = capsule.CapsuleCollider.gameObject;
                 ccGO.transform.SetParent(rbGO.transform, false);
                 ccGO.transform.localPosition = p0;
                 ccGO.transform.localRotation = rot;
+                
+                // set layer to player so that it collides with the hand
+                ccGO.layer = _colliderLayer; 
+                
             }
         }
     }

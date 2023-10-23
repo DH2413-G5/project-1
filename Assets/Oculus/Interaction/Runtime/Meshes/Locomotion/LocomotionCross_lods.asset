@@ -31,13 +31,13 @@ MonoBehaviour:
   lod5: []
   lod6: []
   lod7: []
---- !u!43 &1951509931115020592
+--- !u!43 &2220008776920504934
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Meta_LocomotionBlocked LOD1
+  m_Name: Meta_LocomotionBlocked LOD2
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -196,13 +196,13 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!43 &7276625724576552072
+--- !u!43 &7038786221371606208
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Meta_LocomotionBlocked LOD2
+  m_Name: Meta_LocomotionBlocked LOD1
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

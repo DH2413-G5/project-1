@@ -40,22 +40,17 @@ public class FishMovement : MonoBehaviour
 
     private void Swim()
     {
-        
-
         if (DetectObstacle() || !IsWithinBounds())
         {
             transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);   
         }
        
-            // Continue swimming
-            rb.velocity = transform.forward * swimSpeed;
-            float rotationAngle = Mathf.Sin(timeCounter * rotationFrequency) * rotationAmplitude;
-            transform.Rotate(Vector3.up, rotationAngle * Time.deltaTime);
-            transform.Rotate(Vector3.left, rotationAngle * Time.deltaTime);
-            timeCounter += Time.deltaTime * rotationSpeed;
-        
-
-
+        // Continue swimming
+        rb.velocity = transform.forward * swimSpeed;
+        float rotationAngle = Mathf.Sin(timeCounter * rotationFrequency) * rotationAmplitude;
+        transform.Rotate(Vector3.up, rotationAngle * Time.deltaTime);
+        //transform.Rotate(Vector3.left, rotationAngle * Time.deltaTime);
+        timeCounter += Time.deltaTime * rotationSpeed;
     }
 
 
@@ -67,12 +62,6 @@ public class FishMovement : MonoBehaviour
             return true; // Obstacle detected
         }
         return false; // No obstacle detected
-    }
-
-    bool isOutsideBounds()
-    {
-        return (transform.position.x > (initialPosition.x + bounds.x)) || (transform.position.x < (initialPosition.x - bounds.x)) ||
-            (transform.position.z > (initialPosition.z) + bounds.z) || (transform.position.z < (initialPosition.z - bounds.z));
     }
 
     private bool IsWithinBounds()

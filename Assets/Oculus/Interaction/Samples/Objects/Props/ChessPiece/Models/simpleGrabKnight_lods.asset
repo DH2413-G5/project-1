@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!43 &-4046263611077176583
+--- !u!43 &-231244287853073406
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: knight LOD1
+  m_Name: knight LOD2
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -196,13 +196,13 @@ MonoBehaviour:
   lod5: []
   lod6: []
   lod7: []
---- !u!43 &2127825916720903988
+--- !u!43 &3750073986581825793
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: knight LOD2
+  m_Name: knight LOD1
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

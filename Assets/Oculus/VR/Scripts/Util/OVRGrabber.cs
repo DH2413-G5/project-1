@@ -173,7 +173,8 @@ public class OVRGrabber : MonoBehaviour
 
         float prevFlex = m_prevFlex;
         // Update values from inputs
-        m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
+        // m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
+        m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, m_controller);
 
         CheckForGrabOrRelease(prevFlex);
     }
@@ -373,7 +374,14 @@ public class OVRGrabber : MonoBehaviour
             Vector3 angularVelocity =
                 trackingSpace.orientation * OVRInput.GetLocalControllerAngularVelocity(m_controller);
 
+            // Turn collision with player on again, once we release it
+            SetPlayerIgnoreCollision(m_grabbedObj.gameObject, false);
+            
+            // FIXME Check if object is within player colliders! If yes, ease it out of it,
+            // otherwise it will be flung into a direction.
+            
             GrabbableRelease(linearVelocity, angularVelocity);
+            
         }
 
         // Re-enable grab volumes to allow overlap events
@@ -431,4 +439,5 @@ public class OVRGrabber : MonoBehaviour
             }
         }
     }
+   
 }

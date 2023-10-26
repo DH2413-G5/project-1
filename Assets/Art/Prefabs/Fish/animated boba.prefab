@@ -1239,7 +1239,7 @@ MonoBehaviour:
   turnSpeed: 20
   rotationFrequency: 25
   rotationAmplitude: 30
-  detectionDistance: 2
+  detectionDistance: 4
   rotationSpeed: 0.1
 --- !u!114 &7971460835548416497
 MonoBehaviour:
@@ -1323,7 +1323,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.5
+  - screenRelativeHeight: 0.2185078
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8662310278091450296}

@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon"> <!-- put some other icon here? it's for the browser tab -->
+  <link href="assets/img/logo.png" rel="icon"> <!-- put some other icon here? it's for the browser tab -->
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -44,7 +44,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/apple-touch-icon.png" alt=""> <!-- put some other logo here? it appears on the left side of the Submergency header-->
+        <img src="assets/img/logo.png" alt=""> <!-- put some other logo here? it appears on the left side of the Submergency header-->
         <h1>Submergency</h1>
       </a>
 
@@ -68,17 +68,22 @@
     <section id="submergencyexperience" class="hero">
 
       <img src="assets/img/climate-change-concept-collage.jpg" alt="" data-aos="fade-in">
+      
       <!-- Need to put this link in close vicinity of the image:
         Copy this link and paste it in a visible place, close to where you’re using the image. 
         If that’s not possible, place it at the footer of your website, blog or newsletter, or in the credits section.
         Image by <a href="https://www.freepik.com/free-photo/climate-change-concept-collage_19332542.htm#query=plastic%20pollution%20ocean&position=2&from_view=search&track=ais">Freepik</a>
       -->
-
     </section><!-- End Hero Section -->
+
+    <!-- Image source section -->
+    <section id="image_link" class="freepik">
+      <p>Image by <a href="https://www.freepik.com/free-photo/climate-change-concept-collage_19332542.htm#query=plastic%20pollution%20ocean&position=2&from_view=search&track=ais">Freepik</a></p>
+    </section><!-- End of image source section-->
 
     <!-- Main content section -->
     <section id="maincontent" class="maincontent">
-
+      
     </section><!-- End Main content section -->
 
     <!-- About Section - Home Page -->
@@ -100,6 +105,12 @@
                   The development process for the sand and mountains were harder than expected as everything in the terrain is connected. 
                   Therefore, if you made one little change to one small part of the terrain, everything had to be changed. 
                   It was also not decided on exactly how we wanted the terrain so there were lots of tries and failures.</p>
+
+                  <p>We started out by looking for free 3D Unity assets to add plastic trash to our environment, but this proved somewhat hard to come by. 
+                  Therefore some of the objects had to be modeled in Blender, and then imported into Unity. One challenge with this part of the 
+                  environment was that the amount of objects needed to convey the reality of how plastic pollution of the oceans has increased 
+                  over the decades posed serious processing issues. To solve this, LODs had to be applied, and some parts of the environment where 
+                  the user cannot go was decorated with static meshes, instead of interactable objects. </p>
                 </div>
               </div> <!-- End Environment Box -->
 
@@ -260,28 +271,69 @@
 
         <div class="row gy-4">
 
-          <div class="col-xl-2 col-md-3 col-6 profile-img">
+          <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="profile-img">
+              <img src="assets/img/profiles/Linnéa.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="text-center">
+              <span>Linnéa Gustafsson</span>
+              <p>linneag2@kth.se</p>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="profile-img">
+              <img src="assets/img/profiles/Saga.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="text-center">
+              <span>Saga Palmér</span>
+              <p>sagapa@kth.se</p>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="profile-img">
+              <img src="assets/img/profiles/Akshata.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="text-center">
+              <span>Akshata Murdeshwar</span>
+              <p>akshata@kth.se</p>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="profile-img">
+              <img src="assets/img/profiles/Sofia.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="text-center">
+              <span>Sofia Bergqvist</span>
+              <p>sobergqv@kth.se</p>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="profile-img">
+              <img src="assets/img/profiles/Jacky.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="text-center">
+              <span>Jacky Liu</span>
+              <p>hjjliu@kth.se
+              </p>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-2 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="profile-img">
+              <img src="assets/img/profiles/Shiqi.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="text-center">
+              <span>Shiqi Gong</span>
+              <p>shiqig@kth.se</p>
+            </div>
+          </div><!-- End Team Member -->
+
+          <!--<div class="col-xl-2 col-md-3 col-6 profile-img">
             <img src="assets/img/profiles/Linnéa.jpg" class="img-fluid" alt="">
-          </div><!-- End Profile Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 profile-img">
-            <img src="assets/img/profiles/Saga.jpg" class="img-fluid" alt="">
-          </div><!-- End Profile Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 profile-img">
-            <img src="assets/img/profiles/Akshata.jpg" class="img-fluid" alt="">
-          </div><!-- End Profile Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 profile-img">
-            <img src="assets/img/profiles/Sofia.jpg" class="img-fluid" alt="">
-          </div><!-- End Profile Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 profile-img">
-            <img src="assets/img/profiles/Jacky.jpg" class="img-fluid" alt="">
-          </div><!-- End Profile Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 profile-img">
-            <img src="assets/img/profiles/Shiqi.jpg" class="img-fluid" alt="">
           </div><!-- End Profile Item -->
 
         </div>

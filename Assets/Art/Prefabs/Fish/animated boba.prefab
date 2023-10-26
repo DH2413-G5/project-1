@@ -1239,7 +1239,7 @@ MonoBehaviour:
   turnSpeed: 20
   rotationFrequency: 25
   rotationAmplitude: 30
-  detectionDistance: 2
+  detectionDistance: 4
   rotationSpeed: 0.1
 --- !u!114 &7971460835548416497
 MonoBehaviour:

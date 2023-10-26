@@ -1074,7 +1074,7 @@ MonoBehaviour:
   turnSpeed: 20
   rotationFrequency: 60
   rotationAmplitude: 30
-  detectionDistance: 2
+  detectionDistance: 4
   rotationSpeed: 0.1
 --- !u!54 &-5870800062139597868
 Rigidbody:

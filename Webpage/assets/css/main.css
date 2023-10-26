@@ -878,34 +878,28 @@ section {
   }
 }
 
-/* Clients Section - Home Page
+/* Profiles Section (used to be Clients Section) - Home Page
 ------------------------------*/
-.clients {
+.profiles {
   padding: 10px 0;
+  --background-color: #f4f4f4;
 }
 
-.clients .client-logo {
+.profiles .profile-img {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-.clients .client-logo img {
+.profiles .profile-img img {
   padding: 40px;
   max-width: 80%;
   transition: 0.3s;
-  opacity: 0.5;
-  filter: grayscale(100);
-}
-
-.clients .client-logo img:hover {
-  filter: none;
-  opacity: 1;
 }
 
 @media (max-width: 640px) {
-  .clients .client-logo img {
+  .profiles .profile-img img {
     padding: 20px;
   }
 }
@@ -913,7 +907,7 @@ section {
 /* Main Content section - Home Page
 -------------------------------------*/
 .maincontent {
-  --background-color: #f4f4f4;;
+  --background-color: #f4f4f4;
 }
 
 /* About Section - Home Page

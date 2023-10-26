@@ -23,8 +23,8 @@
   --background-color-rgb: 255, 255, 255;
   --default-color: #212529;
   --default-color-rgb: 33, 37, 41;
-  --primary-color: #e84545;
-  --primary-color-rgb: 232, 69, 69;
+  --primary-color: #456be8;
+  --primary-color-rgb: 69, 107, 232;
   --secondary-color: #32353a;
   --secondary-color-rgb: 50, 53, 58;
   --contrast-color: #ffffff;
@@ -34,10 +34,7 @@
 /* Nav Menu Colors */
 :root {
   --nav-color: #3a3939;
-  --nav-hover-color: #e84545;
-  --nav-dropdown-color: #3a3939;
-  --nav-dropdown-hover-color: #e84545;
-  --nav-dropdown-background-color: #ffffff;
+  --nav-hover-color: #456be8;
   --nav-mobile-background-color: #ffffff;
 }
 
@@ -223,7 +220,7 @@ section {
   --background-color: #ffffff;
   --secondary-color: #444444;
   --nav-color: #444444;
-  --nav-hover-color: #e84545;
+  --nav-hover-color: #456be8;
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -254,7 +251,7 @@ section {
   --background-color: #ffffff;
   --secondary-color: #444444;
   --nav-color: #444444;
-  --nav-hover-color: #d83535;
+  --nav-hover-color: #456be8;
 }
 
 /*--------------------------------------------------------------
@@ -1305,7 +1302,7 @@ section {
 
 .contact .php-email-form .error-message {
   display: none;
-  background: #df1529;
+  background: #456be8;
   color: #ffffff;
   text-align: left;
   padding: 15px;

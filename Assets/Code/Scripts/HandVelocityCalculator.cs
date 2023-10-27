@@ -45,8 +45,6 @@ public class HandVelocityCalculator : MonoBehaviour
         // Calculate right hand's velocity
         Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, deltaTime);
 
-        /*Debug.Log("Left Hand Velocity: " + leftVelocityVector + ", Right Hand Velocity: " + rightVelocityVector);*/
-
         _lastUpdateTime = Time.time;
 
         return (leftVelocityVector, rightVelocityVector);
@@ -100,18 +98,7 @@ public class HandVelocityCalculator : MonoBehaviour
 
             // Get the velocity vector in the palm direction.
             Vector3 palmVelocity = component * relativeHandVelocity.normalized;
-
-            // Debugging info
-            /*Debug.Log(
-                $"deltaTime: {deltaTime}, " +
-                $"worldVelocity: ({worldVelocity.x:F7}, {worldVelocity.y:F7}, {worldVelocity.z:F5}), " +
-                $"playerVelocity: ({playerVelocity.x:F5}, {playerVelocity.y:F5}, {playerVelocity.z:F5}), " +
-                $"palmDirection: ({palmDirection.x:F5}, {palmDirection.y:F5}, {palmDirection.z:F5}), " +
-                $"relativeHandVelocity: ({relativeHandVelocity.x:F5}, {relativeHandVelocity.y:F5}, {relativeHandVelocity.z:F5}), " +
-                $"component: {component}, " +
-                $"palmVelocity: {palmVelocity}"
-            );*/
-
+            
 
             return palmVelocity;
         }

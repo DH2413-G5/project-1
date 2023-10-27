@@ -31,7 +31,9 @@ public class SwimmerHandTracking : MonoBehaviour
     private Rigidbody _rigidbody;
     private bool _leftHandSwim = false;
     private bool _rightHandSwim = false;
-
+    private SwimmerAudioController _audioController;
+    
+    
     private void Awake()
     {
         // Caching the rigidbody.
@@ -40,16 +42,15 @@ public class SwimmerHandTracking : MonoBehaviour
         _rigidbody.useGravity = false;
         // Prevent rotations of the rigidbody to combat motion sickness.
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-    }
-
-    private void Start()
-    {
+        
         _calculator = GetComponent<HandVelocityCalculator>();
+        _audioController=GetComponent<SwimmerAudioController>();
     }
 
     private void FixedUpdate()
     {
         var velocities = _calculator.GetWristVelocities();
+        Debug.Log(velocities);
         Vector3 leftHandVelocity = velocities.leftVelocityVector;
         Vector3 rightHandVelocity = velocities.rightVelocityVector;
         Vector3 localVelocity = leftHandVelocity + rightHandVelocity;
@@ -58,7 +59,6 @@ public class SwimmerHandTracking : MonoBehaviour
 
         if ((_leftHandSwim || _rightHandSwim) && localVelocity.magnitude > 0)
         {
-            localVelocity *= -1;
             // Calculate the angle between the velocity and the horizontal direction
             Vector3 horizontalDirection = new Vector3(localVelocity.x, 0, localVelocity.z);
             float angleBetween = Vector3.Angle(horizontalDirection, localVelocity);

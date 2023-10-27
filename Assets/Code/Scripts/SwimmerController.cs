@@ -79,18 +79,17 @@ namespace Code.Scripts
 
                 localVelocity += leftHandAbsVelocity.normalized * componentLeft;
             }
-
-            Debug.Log("rightHandGrabbed" + rightHandGrabbed);
+            
             if (rightHandGrabbed)
             {
                 Quaternion currentRightRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
                 Vector3 currentPalmDirectionRight = currentRightRotation * defaultPalmDirectionRight;
-                Debug.Log("CurrentRightRotation " + currentRightRotation + " CurrentPalmDirection: " +
-                          currentPalmDirectionRight);
+                /*Debug.Log("CurrentRightRotation " + currentRightRotation + " CurrentPalmDirection: " +
+                          currentPalmDirectionRight);*/
 
                 Vector3 rightHandAbsVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
                 float componentRight = Vector3.Dot(rightHandAbsVelocity, currentPalmDirectionRight);
-                Debug.Log("componentRight: " + componentRight);
+                /*Debug.Log("componentRight: " + componentRight);*/
                 if (componentRight < 0)
                 {
                     componentRight = 0;

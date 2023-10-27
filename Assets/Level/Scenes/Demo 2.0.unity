@@ -23468,8 +23468,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6897932208346153729, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 677673302}
   m_SourcePrefab: {fileID: 100100000, guid: ea2425722b148384ba27f2a37caa5b88, type: 3}
+--- !u!1 &677673301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6897932208346153729, guid: ea2425722b148384ba27f2a37caa5b88,
+    type: 3}
+  m_PrefabInstance: {fileID: 677673300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &677673302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677673301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982443c1ebd6ddd4e8b0b0b4854a99b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swimStroke: {fileID: 8300000, guid: 63d96c04ea3bc0745ac51af1ed73b7e6, type: 3}
+  swimStrokeTail: {fileID: 8300000, guid: 25472f973e30231449b1fa04e45d3147, type: 3}
+  movementThreshold: 0.4
+  audioFadeSpeed: 2
+  controllerVolumeCoefficient: 2
+  handTrackingVolumeCoefficient: 10
 --- !u!1 &696175256
 GameObject:
   m_ObjectHideFlags: 0
@@ -57410,7 +57438,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801670370}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 18c021661dd2c4134ab3304f079920d7, type: 3}

@@ -912,6 +912,7 @@ section {
 -------------------------------------*/
 .maincontent {
   --background-color: #f4f4f4;
+  padding-left: 50px;
 }
 
 /* About Section - Home Page

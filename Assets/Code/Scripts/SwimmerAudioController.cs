@@ -1,37 +1,46 @@
 using UnityEngine;
 using Oculus.Interaction.Input;
+using UnityEngine.Serialization;
 
 public class SwimmerAudioController : MonoBehaviour
 {
+    [Header("Audio")]
+    
     [Tooltip("Audio clip for the main swim stroke sound.")]
     [SerializeField] private AudioClip swimStroke;
 
     [Tooltip("Audio clip for the tail of the swim stroke sound.")]
     [SerializeField] private AudioClip swimStrokeTail;
-
-    [Tooltip("Audio source for the left hand swim sounds.")]
-    private AudioSource leftHandAudioSource;
-
-    [Tooltip("Audio source for the right hand swim sounds.")]
-    private AudioSource rightHandAudioSource;
-
-    [Tooltip("Audio source for playing left hand swim stroke tail sounds.")]
-    private AudioSource leftTailAudioSource;
-
-    [Tooltip("Audio source for playing right hand swim stroke tail sounds.")]
-    private AudioSource rightTailAudioSource;
-
-    [Tooltip("Threshold value to determine if the hand is moving.")]
-    [SerializeField] private float movementThreshold = 0.3f;
-
+    
     [Tooltip("Speed at which audio volume decreases when hand stops moving.")]
     [SerializeField] private float audioFadeSpeed = 1.5f;
+    
+    [Header("Hand Tracking")]
+    
+    [Tooltip("Threshold value to determine if the hand is moving.")]
+    [SerializeField] private float handTrackingMovementThreshold = 0.3f;
+    
+    [Tooltip("Coefficient to determine the relationship between hand tracking speed and audio volume. A higher value means that the impact of speed changes on the volume will be smaller.")]
+    [SerializeField] private float handTrackingVolumeCoefficient = 10f;
+    
+    [Tooltip("Window size for the moving average filter.")]
+    [SerializeField] private int windowSize = 5;
+    
+    [Header("Controller")]
+    [Tooltip("Threshold value to determine if the hand is moving.")]
+    [SerializeField] private float controllerMovementThreshold = 0.4f;
     
     [Tooltip("Coefficient to determine the relationship between controller speed and audio volume. A higher value means that the impact of speed changes on the volume will be smaller.")]
     [SerializeField] private float controllerVolumeCoefficient = 2f;
     
-    [Tooltip("Coefficient to determine the relationship between hand tracking speed and audio volume. A higher value means that the impact of speed changes on the volume will be smaller.")]
-    [SerializeField] private float handTrackingVolumeCoefficient = 10f;
+    //Audio source for the left/right hand swim stroke sounds and swim stroke tail sounds.
+    private AudioSource leftHandAudioSource;
+    private AudioSource rightHandAudioSource;
+    private AudioSource leftTailAudioSource;
+    private AudioSource rightTailAudioSource;
+    
+    private MovingAverageFilter leftHandVelocityFilter;
+    private MovingAverageFilter rightHandVelocityFilter;
 
     private Vector3 leftControllerVelocity;
     private Vector3 rightControllerVelocity;
@@ -39,12 +48,15 @@ public class SwimmerAudioController : MonoBehaviour
     private Vector3 rightHandTrackingVelocity;
     private float handTrackingVelocity;
     private float controllerVelocity;
-    private SwimmerHandTracking _swimmerHandTracking;
     private (Vector3 leftVelocityVector, Vector3 rightVelocityVector) _velocities;
+    
+    private Vector3 previousLeftHandLocalPosition;
+    private float previousLeftHandTime;
+    private Vector3 previousRightHandLocalPosition;
+    private float previousRightHandTime;
 
     private void Awake()
     {
-        _swimmerHandTracking = GetComponent<SwimmerHandTracking>();
         leftHandAudioSource = gameObject.AddComponent<AudioSource>();
         rightHandAudioSource = gameObject.AddComponent<AudioSource>();
         leftTailAudioSource = gameObject.AddComponent<AudioSource>();
@@ -53,8 +65,12 @@ public class SwimmerAudioController : MonoBehaviour
         rightTailAudioSource.loop = true;
         leftTailAudioSource.clip = swimStrokeTail;
         rightTailAudioSource.clip = swimStrokeTail;
+        
+        // 初始化滑动平均滤波器
+        leftHandVelocityFilter = new MovingAverageFilter(windowSize);
+        rightHandVelocityFilter = new MovingAverageFilter(windowSize);
     }
-    private void Update()
+    private void FixedUpdate()
     {
         ProcessHandAudio(OVRInput.Controller.LTouch, leftHandAudioSource, leftTailAudioSource);
         ProcessHandAudio(OVRInput.Controller.RTouch, rightHandAudioSource, rightTailAudioSource);
@@ -65,19 +81,19 @@ public class SwimmerAudioController : MonoBehaviour
         
         if (controller == OVRInput.Controller.LTouch)
         {
-            leftHandTrackingVelocity = _velocities.leftVelocityVector;
             leftControllerVelocity = OVRInput.GetLocalControllerVelocity(controller);
+            handTrackingVelocity= leftHandTrackingVelocity.magnitude;
+            /*Debug.Log("handTrackingVelocity:"+handTrackingVelocity);
+            DebugUIManager.Instance.UpdateDebugText("handTrackingVelocity:" + handTrackingVelocity);*/
         }
         else if (controller == OVRInput.Controller.RTouch)
         {
-            rightHandTrackingVelocity = _velocities.rightVelocityVector;
-            rightControllerVelocity = OVRInput.GetLocalControllerVelocity(controller);
+            rightControllerVelocity= OVRInput.GetLocalControllerVelocity(controller);
+            handTrackingVelocity= rightHandTrackingVelocity.magnitude;
         }
 
-        handTrackingVelocity=leftHandTrackingVelocity.magnitude+rightHandTrackingVelocity.magnitude;
         controllerVelocity = leftControllerVelocity.magnitude + rightControllerVelocity.magnitude;
-        Debug.Log("handTrackingVelocity"+ handTrackingVelocity);
-        if (!(handTrackingVelocity > movementThreshold || controllerVelocity > movementThreshold))
+        if (!(handTrackingVelocity > (handTrackingMovementThreshold) || controllerVelocity > controllerMovementThreshold))
         {
             FadeOutAudio(audioSource);
             FadeOutAudio(tailAudioSource);
@@ -87,15 +103,17 @@ public class SwimmerAudioController : MonoBehaviour
         float speed;
         if(controllerVelocity > 0)
         {
+            //Reset the volume
             speed = controllerVelocity;
-            audioSource.volume = (speed >= controllerVolumeCoefficient) ? 1f : speed / controllerVolumeCoefficient;  // 重置音量
+            audioSource.volume = (speed >= controllerVolumeCoefficient) ? 1f : speed / controllerVolumeCoefficient;
             tailAudioSource.volume= audioSource.volume;
         }
 
         if (handTrackingVelocity>0)
         {
+            //Reset the volume
             speed = handTrackingVelocity;
-            audioSource.volume = (speed >= handTrackingVolumeCoefficient) ? 1f : speed / handTrackingVolumeCoefficient;  // 重置音量
+            audioSource.volume = (speed >= handTrackingVolumeCoefficient) ? 1f : speed / handTrackingVolumeCoefficient;
             tailAudioSource.volume= audioSource.volume;
         }
         
@@ -147,7 +165,10 @@ public class SwimmerAudioController : MonoBehaviour
     
     public void ReceiveVelocities((Vector3 leftVelocityVector, Vector3 rightVelocityVector) velocities)
     {
-        Debug.Log("Received velocities: " + velocities);
         _velocities=velocities;
+        Debug.Log("ReceiveVelocities"+_velocities.leftVelocityVector.magnitude);
+        // Use a moving average filter for processing speed
+        leftHandTrackingVelocity = leftHandVelocityFilter.Process(_velocities.leftVelocityVector);
+        rightHandTrackingVelocity = rightHandVelocityFilter.Process(_velocities.rightVelocityVector);
     }
 }

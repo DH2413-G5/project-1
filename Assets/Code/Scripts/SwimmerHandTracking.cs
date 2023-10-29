@@ -31,7 +31,7 @@ public class SwimmerHandTracking : MonoBehaviour
     private Rigidbody _rigidbody;
     private bool _leftHandSwim = false;
     private bool _rightHandSwim = false;
-    private SwimmerAudioController _audioController;
+
     
     
     private void Awake()
@@ -44,13 +44,11 @@ public class SwimmerHandTracking : MonoBehaviour
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         
         _calculator = GetComponent<HandVelocityCalculator>();
-        _audioController=GetComponent<SwimmerAudioController>();
     }
 
     private void FixedUpdate()
     {
         var velocities = _calculator.GetWristVelocities();
-        Debug.Log(velocities);
         Vector3 leftHandVelocity = velocities.leftVelocityVector;
         Vector3 rightHandVelocity = velocities.rightVelocityVector;
         Vector3 localVelocity = leftHandVelocity + rightHandVelocity;

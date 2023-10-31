@@ -34,6 +34,7 @@ public class FishSpawn : MonoBehaviour
             var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
             //var rotation = Quaternion.identity;
             allFish[i] = Instantiate(fishPrefab, spawnPosition, rotation);
+            allFish[i].transform.SetParent(transform);
         }
     }
 

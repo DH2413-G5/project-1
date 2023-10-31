@@ -32,6 +32,9 @@ public class SwimmerHandTracking : MonoBehaviour
     private bool _leftHandSwim = false;
     private bool _rightHandSwim = false;
 
+    public bool IsLeftHandSwim => _leftHandSwim;
+    public bool IsRightHandSwim => _rightHandSwim;
+
     private void Awake()
     {
         // Caching the rigidbody.

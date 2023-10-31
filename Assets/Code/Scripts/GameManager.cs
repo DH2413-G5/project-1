@@ -6,8 +6,9 @@ public class GameManager : MonoBehaviour
     // Drag and drop the child objects of hand tracking in the Inspector
     public GameObject[] handTrackingChildObjects; 
     // Drag and drop the child objects of controller in the Inspector
-    public GameObject[] controllerChildObjects;
-    private bool _previousControllerState;
+    public GameObject[] controllerChildObjects; 
+
+    private bool previousControllerState;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
     void InitializeInputDevice()
     {
         // This will force the first UpdateInputDevice function, thus initializing the input devices.
-        _previousControllerState = !IsOVRControllerConnected();
+        previousControllerState = !IsOVRControllerConnected();
     }
 
     /**
@@ -35,24 +36,24 @@ public class GameManager : MonoBehaviour
     {
         bool currentControllerState = IsOVRControllerConnected();
         // Only switch active state of child objects when the controller state changes
-        if (currentControllerState != _previousControllerState)
+        if (currentControllerState != previousControllerState)
         {
             if (currentControllerState)
             {
                 // Toggle child objects active state
                 ToggleChildObjects(handTrackingChildObjects, false);
                 ToggleChildObjects(controllerChildObjects, true);
-                _previousControllerState = false;
+                previousControllerState = false;
             }
             else
             {
                 // Toggle child objects active state
                 ToggleChildObjects(handTrackingChildObjects, true);
                 ToggleChildObjects(controllerChildObjects, false);
-                _previousControllerState = true;
+                previousControllerState = true;
             }
 
-            _previousControllerState = currentControllerState;
+            previousControllerState = currentControllerState;
         }
     }
 

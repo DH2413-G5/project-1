@@ -17,7 +17,6 @@ namespace Code.Scripts.Checkpoints {
             Assert.IsNotNull(_collider);
             Assert.IsTrue(_collider.isTrigger);
             
-            buttonsPressedTutorial.SetActive(true);
             swimmingMotionTutorial.SetActive(false);
         }
         
@@ -40,7 +39,7 @@ namespace Code.Scripts.Checkpoints {
             }
         }
 
-        private void SwimDetection()
+        public void SwimDetection()
         {
             // ADD SWIMMING DETECTION LOGIC
             OnCheckpointReached?.Invoke();

@@ -4983,10 +4983,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Height: 4.33037
+  m_Radius: 2.250056
+  m_Height: 7.433729
   m_Direction: 1
-  m_Center: {x: 0, y: 0.6651849, z: 0}
+  m_Center: {x: 0.040487766, y: 2.1319938, z: -0.041484118}
 --- !u!114 &664516553006434552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24768,8 +24768,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8228788551502918016}
   - {fileID: 6549031060577973881}
@@ -29707,4 +29707,4 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 3

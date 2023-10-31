@@ -40,7 +40,7 @@ namespace Code.Scripts.Checkpoints {
             }
         }
 
-        public void SwimDetection()
+        private void SwimDetection()
         {
             // ADD SWIMMING DETECTION LOGIC
             OnCheckpointReached?.Invoke();

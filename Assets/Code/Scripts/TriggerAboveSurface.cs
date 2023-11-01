@@ -10,9 +10,9 @@ public class TriggerAboveSurface : MonoBehaviour
     {
         // Default fog
         RenderSettings.fog = true;  
-        RenderSettings.fogColor = Color.HSVToRGB(202f / 360, 66f / 100f, 76f / 100f);
-        RenderSettings.fogMode = FogMode.ExponentialSquared;
-        RenderSettings.fogDensity = 0.005f;
+        //RenderSettings.fogColor = Color.HSVToRGB(202f / 360, 66f / 100f, 76f / 100f);
+        //RenderSettings.fogMode = FogMode.ExponentialSquared;
+        //RenderSettings.fogDensity = 0.005f;
     }
 
     void Start()

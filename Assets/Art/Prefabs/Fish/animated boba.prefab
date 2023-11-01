@@ -91,7 +91,7 @@ SkinnedMeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.19721733
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -558,7 +558,7 @@ SkinnedMeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.05081245
   m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -1323,15 +1323,15 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.2185078
+  - screenRelativeHeight: 0.158137
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8662310278091450296}
-  - screenRelativeHeight: 0.17
+  - screenRelativeHeight: 0.046682935
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 350721963030728710}
-  - screenRelativeHeight: 0.02
+  - screenRelativeHeight: 0.0053163287
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4576315824419630003}

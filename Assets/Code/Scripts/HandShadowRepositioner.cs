@@ -7,6 +7,8 @@ public class HandShadowRepositioner : MonoBehaviour
 {
 
     [SerializeField] private float xOffset;
+    [SerializeField] private float yOffset;
+    [SerializeField] private float zOffset;
     [SerializeField] private float scaleX = 1;
     [SerializeField] private float scaleY = 1;
     [SerializeField] private float scaleZ = 1;
@@ -22,6 +24,6 @@ public class HandShadowRepositioner : MonoBehaviour
     void Update()
     {
         var pos = handAnchor.localPosition;
-        transform.localPosition = new Vector3(xOffset + pos.x * scaleX, pos.y * scaleY, pos.z * scaleZ);
+        transform.localPosition = new Vector3(xOffset + pos.x * scaleX, yOffset + pos.y * scaleY, zOffset + pos.z * scaleZ);
     }
 }

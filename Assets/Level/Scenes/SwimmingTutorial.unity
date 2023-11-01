@@ -2228,7 +2228,7 @@ MonoBehaviour:
   - {fileID: 702830070}
   - {fileID: 798303788}
   - {fileID: 981261097}
-  nextSceneName: Demo 2.0
+  nextSceneName: Demo 3.0
   ControllerStartPosition: {fileID: 763458396}
   HandsStartPosition: {fileID: 1086832746}
   PlayerTransform: {fileID: 1059334604}
@@ -2993,6 +2993,11 @@ PrefabInstance:
       propertyPath: limitedAngle
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4150795909815271804, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4183901350970820529, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: gravity
@@ -3013,10 +3018,20 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5246892412130557264, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_parentTransform
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6174053827332040311, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: m_Name
       value: OVRHandLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859432021696980741, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6897932208346153729, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}

@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.25839996, g: 0.57608, b: 0.76, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.008
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12331,6 +12331,7 @@ MonoBehaviour:
   minVelocity: 0
   gravity: 1
   maxForce: 40
+  limitedAngle: 0
 --- !u!54 &589339816
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35872,6 +35873,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6897932208346153729, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7530499440262606098, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36189,6 +36195,7 @@ MonoBehaviour:
   dragForce: 0.3
   gravity: 0.5
   maxForce: 40
+  limitedAngle: 0
 --- !u!114 &1908880565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36206,6 +36213,7 @@ MonoBehaviour:
   minVelocity: 0.3
   gravity: 0.5
   maxForce: 40
+  limitedAngle: 0
 --- !u!54 &1908880566
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ public class TutorialUIManager : MonoBehaviour
 {
     [SerializeField] private TutorialCanvas TutorialCanvas;
     [SerializeField] private GameObject UIHelper;
+    [SerializeField] private GameObject HandTrackingEventSystem;
 
     private bool _controllerShown;
     private bool _handsShown;
@@ -27,10 +28,17 @@ public class TutorialUIManager : MonoBehaviour
         if (_canvasShown && IsOVRControllerConnected())
         {
             UIHelper.SetActive(true);
+            Camera cameraComponent =HandTrackingEventSystem.GetComponent<Camera>();
+            if (cameraComponent != null)
+            {
+                Destroy(cameraComponent);
+            }
+            HandTrackingEventSystem.SetActive(false);
         }
         else
         {
             UIHelper.SetActive(false);
+            HandTrackingEventSystem.SetActive(true);
         }
 
         if (_controllerShown && _handsShown)
@@ -69,5 +77,10 @@ public class TutorialUIManager : MonoBehaviour
         // Check if Oculus controllers are connected
         return OVRInput.IsControllerConnected(OVRInput.Controller.RTouch) ||
             OVRInput.IsControllerConnected(OVRInput.Controller.LTouch);
+    }
+
+    public void Clicked()
+    {
+        Debug.Log("Clicked");
     }
 }

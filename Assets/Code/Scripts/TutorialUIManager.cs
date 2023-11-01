@@ -4,6 +4,7 @@ using UnityEngine.Assertions;
 public class TutorialUIManager : MonoBehaviour
 {
     [SerializeField] private TutorialCanvas TutorialCanvas;
+    [SerializeField] private Camera EventCamera;
     [SerializeField] private GameObject UIHelper;
     [SerializeField] private GameObject HandTrackingEventSystem;
 
@@ -33,6 +34,7 @@ public class TutorialUIManager : MonoBehaviour
             {
                 Destroy(cameraComponent);
             }
+            TutorialCanvas.GetComponent<Canvas>().worldCamera = EventCamera;
             HandTrackingEventSystem.SetActive(false);
         }
         else

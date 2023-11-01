@@ -2791,6 +2791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TutorialCanvas: {fileID: 238640784}
+  EventCamera: {fileID: 1268059212}
   UIHelper: {fileID: 390827824}
   HandTrackingEventSystem: {fileID: 424256463}
 --- !u!1001 &798303786

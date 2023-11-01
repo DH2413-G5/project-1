@@ -244,6 +244,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1956615922619569930, guid: b86895f0839182648a64de8f8cdcda9b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3371963396825626027, guid: b86895f0839182648a64de8f8cdcda9b,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -265,6 +270,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978169054015496143, guid: b86895f0839182648a64de8f8cdcda9b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9006580020964487204, guid: b86895f0839182648a64de8f8cdcda9b,
         type: 3}

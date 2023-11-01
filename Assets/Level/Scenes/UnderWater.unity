@@ -987,7 +987,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 320429708}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1665,7 +1665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 737161455}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bubbles z=200
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1722,7 +1722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 804101320}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bubbles z=300
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2231,7 +2231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1057803519}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bubbles z=100
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2892,6 +2892,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterSurface
       objectReference: {fileID: 0}
+    - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2993,7 +2998,7 @@ GameObject:
   - component: {fileID: 1285995550}
   - component: {fileID: 1285995549}
   - component: {fileID: 1285995548}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Godrays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3046,14 +3051,14 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 0
+  m_RenderAlignment: 1
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
@@ -3379,7 +3384,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 300
+      scalar: 100
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3709,9 +3714,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: 0, y: -1, z: 250}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 400, y: 300, z: 700}
+    m_Scale: {x: 500, y: 100, z: 600}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4348,8 +4353,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 0.09803922}
-        key2: {r: 0, g: 0, b: 0, a: 0.09803922}
+        key1: {r: 1, g: 1, b: 1, a: 0.05882353}
+        key2: {r: 0, g: 0, b: 0, a: 0.05882353}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -4364,7 +4369,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 9638
+        atime1: 9830
         atime2: 55705
         atime3: 65535
         atime4: 0
@@ -7804,7 +7809,7 @@ Transform:
   m_GameObject: {fileID: 1285995547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 250}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8410,7 +8415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1524159594}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bubbles z=400
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8593,6 +8598,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterSurface_Below
       objectReference: {fileID: 0}
+    - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8703,7 +8713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1663804789}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bubbles z=0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8824,7 +8834,7 @@ GameObject:
   - component: {fileID: 1734175468}
   - component: {fileID: 1734175467}
   - component: {fileID: 1734175466}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ocean Surface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8966,7 +8976,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 80
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 1463
@@ -8986,7 +8996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1748577627}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bubbles z=500
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody))]
 public class SwimmerHandTracking : MonoBehaviour
@@ -21,6 +22,13 @@ public class SwimmerHandTracking : MonoBehaviour
     [Tooltip("Maximum force applied to rigibody at once.")] [SerializeField]
     private float maxForce;
 
+    [FormerlySerializedAs("horizontalVelocityCoefficient")]
+    [Range(0f, 1f)]
+    [Tooltip(
+        "The velocity in the vertical direction will be multiplied by this coefficient.")]
+    [SerializeField]
+    private float verticalVelocityCoefficient;
+    
     [Tooltip(
         "When the Angle between the direction of the motion speed and the horizontal direction of the world is less than this Angle, the speed in the vertical direction is reduced.")]
     [SerializeField]
@@ -32,8 +40,9 @@ public class SwimmerHandTracking : MonoBehaviour
     private bool _leftHandSwim = false;
     private bool _rightHandSwim = false;
 
-    
-    
+    public bool IsLeftHandSwim => _leftHandSwim;
+    public bool IsRightHandSwim => _rightHandSwim;
+
     private void Awake()
     {
         // Caching the rigidbody.
@@ -42,7 +51,10 @@ public class SwimmerHandTracking : MonoBehaviour
         _rigidbody.useGravity = false;
         // Prevent rotations of the rigidbody to combat motion sickness.
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-        
+    }
+
+    private void Start()
+    {
         _calculator = GetComponent<HandVelocityCalculator>();
     }
 
@@ -57,17 +69,17 @@ public class SwimmerHandTracking : MonoBehaviour
 
         if ((_leftHandSwim || _rightHandSwim) && localVelocity.magnitude > 0)
         {
+            localVelocity *= -1;
             // Calculate the angle between the velocity and the horizontal direction
             Vector3 horizontalDirection = new Vector3(localVelocity.x, 0, localVelocity.z);
             float angleBetween = Vector3.Angle(horizontalDirection, localVelocity);
             // Print the velocities to Unity Console
             // Debug.Log("Local Velocity: " + localVelocity);
-            localVelocity *= -1;
 
             if (angleBetween < limitedAngle)
             {
                 // Smoothly reduce vertical speed
-                localVelocity.y *= (angleBetween / limitedAngle);
+                localVelocity.y *= (angleBetween / limitedAngle)*verticalVelocityCoefficient;
             }
 
             Vector3 forceToAdd = localVelocity * swimForce;

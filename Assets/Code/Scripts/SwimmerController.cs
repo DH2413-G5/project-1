@@ -54,7 +54,6 @@ namespace Code.Scripts
             // Apply the initial rotation to the default palm directions
             defaultPalmDirectionLeft = initialPlayerRotation * defaultPalmDirectionLeft;
             defaultPalmDirectionRight = initialPlayerRotation * defaultPalmDirectionRight;
-            Debug.Log("defaultPalmDirectionLeft" + defaultPalmDirectionLeft);
         }
 
         private void FixedUpdate()
@@ -79,17 +78,14 @@ namespace Code.Scripts
 
                 localVelocity += leftHandAbsVelocity.normalized * componentLeft;
             }
-            
+
             if (rightHandGrabbed)
             {
                 Quaternion currentRightRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
                 Vector3 currentPalmDirectionRight = currentRightRotation * defaultPalmDirectionRight;
-                /*Debug.Log("CurrentRightRotation " + currentRightRotation + " CurrentPalmDirection: " +
-                          currentPalmDirectionRight);*/
 
                 Vector3 rightHandAbsVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
                 float componentRight = Vector3.Dot(rightHandAbsVelocity, currentPalmDirectionRight);
-                /*Debug.Log("componentRight: " + componentRight);*/
                 if (componentRight < 0)
                 {
                     componentRight = 0;
@@ -123,7 +119,6 @@ namespace Code.Scripts
                 Vector3 forceToAdd = worldVelocity * swimForce;
                 forceToAdd = Vector3.ClampMagnitude(forceToAdd, maxForce);
                 _rigidbody.AddForce(forceToAdd, ForceMode.Acceleration);
-                Debug.Log("Force added: " + forceToAdd);
             }
 
             if (_rigidbody.velocity.sqrMagnitude > 0.01f)

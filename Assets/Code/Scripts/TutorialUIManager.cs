@@ -20,6 +20,8 @@ public class TutorialUIManager : MonoBehaviour
         _controllerShown = false;
         _nextPanel = TutorialCanvas.StartPanel;
         _canvasShown = true;
+        // Can only have one EventSystem active at a time.
+        HandTrackingEventSystem.SetActive(false);
         ShowPanel();
     }
 

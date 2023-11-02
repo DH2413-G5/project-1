@@ -2756,7 +2756,7 @@ MonoBehaviour:
   - {fileID: 702830070}
   - {fileID: 798303788}
   - {fileID: 981261097}
-  nextSceneName: Demo 2.0
+  nextSceneName: Demo 3.0
   ControllerStartPosition: {fileID: 763458396}
   HandsStartPosition: {fileID: 1086832746}
   PlayerTransform: {fileID: 1059334604}

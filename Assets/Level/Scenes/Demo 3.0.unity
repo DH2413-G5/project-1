@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 549991105}
-  m_IndirectSpecularColor: {r: 0.3570232, g: 0.6970393, b: 0.7235334, a: 1}
+  m_IndirectSpecularColor: {r: 0.35702324, g: 0.6970393, b: 0.7235334, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22101,6 +22101,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3654997376026102964, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: limitedAngle
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654997376026102964, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: verticalVelocityCoefficient
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654997376026102964, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: horizontalVelocityCoefficient
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5430224461572710714, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -33483,7 +33498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &698396845
 Transform:
   m_ObjectHideFlags: 0
@@ -44190,6 +44205,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5603841265452691072, guid: b86895f0839182648a64de8f8cdcda9b,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603841265452691072, guid: b86895f0839182648a64de8f8cdcda9b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 26b2cd5b0478df34eba708b918a903b9, type: 2}
+    - target: {fileID: 5603841265452691072, guid: b86895f0839182648a64de8f8cdcda9b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 201aeac2a3860724e984461d5688701a, type: 2}
     - target: {fileID: 5678911987630936927, guid: b86895f0839182648a64de8f8cdcda9b,
         type: 3}
       propertyPath: m_Enabled
@@ -80587,7 +80617,7 @@ PrefabInstance:
     - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8,
         type: 3}
@@ -95660,8 +95690,8 @@ Transform:
   m_Children:
   - {fileID: 572049060}
   - {fileID: 1648020580}
-  - {fileID: 698396845}
   - {fileID: 1597638953}
+  - {fileID: 698396845}
   - {fileID: 165188201}
   - {fileID: 216949455}
   m_Father: {fileID: 342602918}
@@ -100838,6 +100868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Godrays
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366100094065953388, guid: 6c1984291e1791b40a719fff8b38282d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

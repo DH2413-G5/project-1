@@ -4,7 +4,9 @@ using UnityEngine.Assertions;
 public class TutorialUIManager : MonoBehaviour
 {
     [SerializeField] private TutorialCanvas TutorialCanvas;
+    [SerializeField] private Camera EventCamera;
     [SerializeField] private GameObject UIHelper;
+    [SerializeField] private GameObject HandTrackingEventSystem;
 
     private bool _controllerShown;
     private bool _handsShown;
@@ -18,6 +20,8 @@ public class TutorialUIManager : MonoBehaviour
         _controllerShown = false;
         _nextPanel = TutorialCanvas.StartPanel;
         _canvasShown = true;
+        // Can only have one EventSystem active at a time.
+        HandTrackingEventSystem.SetActive(false);
         ShowPanel();
     }
 
@@ -26,11 +30,20 @@ public class TutorialUIManager : MonoBehaviour
     {
         if (_canvasShown && IsOVRControllerConnected())
         {
+
+            Camera cameraComponent =HandTrackingEventSystem.GetComponent<Camera>();
+            if (cameraComponent != null)
+            {
+                Destroy(cameraComponent);
+            }
+            TutorialCanvas.GetComponent<Canvas>().worldCamera = EventCamera;
+            HandTrackingEventSystem.SetActive(false);
             UIHelper.SetActive(true);
         }
         else
         {
             UIHelper.SetActive(false);
+            HandTrackingEventSystem.SetActive(true);
         }
 
         if (_controllerShown && _handsShown)
@@ -69,5 +82,10 @@ public class TutorialUIManager : MonoBehaviour
         // Check if Oculus controllers are connected
         return OVRInput.IsControllerConnected(OVRInput.Controller.RTouch) ||
             OVRInput.IsControllerConnected(OVRInput.Controller.LTouch);
+    }
+
+    public void Clicked()
+    {
+        Debug.Log("Clicked");
     }
 }

@@ -5794,6 +5794,74 @@ PrefabInstance:
       addedObject: {fileID: 190510880}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d63e0aaa986614e4fa5a61df90e86cb4, type: 3}
+--- !u!1001 &6708137158152303499
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765236922925927295, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626259659751353771, guid: ec03f22106e13443aa125f5ebd1422db,
+        type: 3}
+      propertyPath: m_Name
+      value: Swimming School Music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec03f22106e13443aa125f5ebd1422db, type: 3}
 --- !u!1001 &9127874608316377745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5884,3 +5952,4 @@ SceneRoots:
   - {fileID: 1865548856}
   - {fileID: 610447866}
   - {fileID: 2059374981}
+  - {fileID: 6708137158152303499}

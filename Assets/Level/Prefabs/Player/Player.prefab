@@ -731,6 +731,7 @@ GameObject:
   - component: {fileID: 2742195041433086371}
   - component: {fileID: 9147889886230234852}
   - component: {fileID: 2877397095480611906}
+  - component: {fileID: 8938717462797610369}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -815,6 +816,7 @@ MonoBehaviour:
   dragForce: 0.3
   gravity: 0.2
   maxForce: 40
+  verticalVelocityCoefficient: 0
   limitedAngle: 20
 --- !u!114 &2742195041433086371
 MonoBehaviour:
@@ -876,6 +878,26 @@ CapsuleCollider:
   m_Height: 14.568607
   m_Direction: 1
   m_Center: {x: 0, y: -5.2843037, z: -2}
+--- !u!114 &8938717462797610369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897932208346153729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982443c1ebd6ddd4e8b0b0b4854a99b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swimStroke: {fileID: 8300000, guid: 63d96c04ea3bc0745ac51af1ed73b7e6, type: 3}
+  swimStrokeTail: {fileID: 8300000, guid: 25472f973e30231449b1fa04e45d3147, type: 3}
+  audioFadeSpeed: 2
+  handTrackingMovementThreshold: 0.3
+  handTrackingVolumeCoefficient: 1
+  windowSize: 5
+  controllerMovementThreshold: 0.4
+  controllerVolumeCoefficient: 2
 --- !u!1 &7525438945764835471
 GameObject:
   m_ObjectHideFlags: 0

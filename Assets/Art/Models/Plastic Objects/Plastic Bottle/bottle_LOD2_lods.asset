@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!43 &-3228920769337108966
+--- !u!43 &-6011635511751809370
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,47 +165,13 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e927627221206e04dba83232f13d1949, type: 3}
-  m_Name: bottle_LOD2_lods
-  m_EditorClassIdentifier: 
-  overrideDefaults: 0
-  importSettings:
-    generateOnImport: 1
-    meshSimplifier: Unity.AutoLOD.QuadricMeshSimplifier, Unity.AutoLOD.Editor, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    batcher: 
-    maxLODGenerated: 2
-    initialLODMaxPolyCount: 500000
-  lod0:
-  - {fileID: 1221132725086013993, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
-  - {fileID: 5003299970674324791, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
-  lod1:
-  - {fileID: 5046768298257631910, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
-  - {fileID: -6172282059461254563, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
-  lod2:
-  - {fileID: 3156641127135196675, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
-  - {fileID: -6881934865903073812, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
-  lod3: []
-  lod4: []
-  lod5: []
-  lod6: []
-  lod7: []
---- !u!43 &2525172644470998691
+--- !u!43 &-606225640480466693
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bottle_cap_LOD2 LOD1
+  m_Name: bottle_cap_LOD2 LOD2
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -364,7 +330,41 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!43 &5747035338834982436
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e927627221206e04dba83232f13d1949, type: 3}
+  m_Name: bottle_LOD2_lods
+  m_EditorClassIdentifier: 
+  overrideDefaults: 0
+  importSettings:
+    generateOnImport: 1
+    meshSimplifier: Unity.AutoLOD.QuadricMeshSimplifier, Unity.AutoLOD.Editor, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    batcher: 
+    maxLODGenerated: 2
+    initialLODMaxPolyCount: 500000
+  lod0:
+  - {fileID: 1221132725086013993, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
+  - {fileID: 5003299970674324791, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
+  lod1:
+  - {fileID: 5046768298257631910, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
+  - {fileID: -6172282059461254563, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
+  lod2:
+  - {fileID: 3156641127135196675, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
+  - {fileID: -6881934865903073812, guid: f3d8221373e39994e9ef83daae3a8894, type: 3}
+  lod3: []
+  lod4: []
+  lod5: []
+  lod6: []
+  lod7: []
+--- !u!43 &3571000994911918522
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -529,13 +529,13 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!43 &6968408281668438517
+--- !u!43 &7468286978519550967
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bottle_cap_LOD2 LOD2
+  m_Name: bottle_cap_LOD2 LOD1
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

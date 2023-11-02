@@ -27,12 +27,16 @@ public class HandVelocityCalculator : MonoBehaviour
     private bool _isPreviousLeftPos = false;
     private bool _isPreviousRightPos = false;
 
+    private SwimmerAudioController _swimmerAudioController;
+    
     private void Awake()
     {
         LeftHand = _leftHand as IHand;
         RightHand = _rightHand as IHand;
 
         _lastUpdateTime = Time.time;
+        
+        _swimmerAudioController= GetComponent<SwimmerAudioController>();
     }
 
     public (Vector3 leftVelocityVector, Vector3 rightVelocityVector) GetWristVelocities()
@@ -40,25 +44,24 @@ public class HandVelocityCalculator : MonoBehaviour
         float deltaTime = Time.time - _lastUpdateTime;
 
         // Calculate left hand's velocity
-        Vector3 leftVelocityVector = ComputeHandWristRootVelocity(LeftHand, deltaTime);
+        Vector3 leftVelocityVector = ComputeHandVelocity(LeftHand, deltaTime, out Vector3 relativeLeftHandVelocity);
 
         // Calculate right hand's velocity
-        Vector3 rightVelocityVector = ComputeHandWristRootVelocity(RightHand, deltaTime);
-
-        /*Debug.Log("Left Hand Velocity: " + leftVelocityVector + ", Right Hand Velocity: " + rightVelocityVector);*/
+        Vector3 rightVelocityVector = ComputeHandVelocity(RightHand, deltaTime,out Vector3 relativeRightHandVelocity);
 
         _lastUpdateTime = Time.time;
-
+        _swimmerAudioController.ReceiveVelocities((relativeLeftHandVelocity, relativeRightHandVelocity));
+        
         return (leftVelocityVector, rightVelocityVector);
     }
 
-
-    private Vector3 ComputeHandWristRootVelocity(IHand hand, float deltaTime)
+    private Vector3 ComputeHandVelocity(IHand hand, float deltaTime,out Vector3 relativeHandVelocity)
     {
         if (hand.GetRootPose(out Pose rootPose))
         {
             Vector3 palmDirection;
             Vector3 worldVelocity = Vector3.zero;
+            Vector3 playerVelocity = playerRigidbody.velocity;
             // Calculate worldVelocity if we have previous root pose position
             if (hand.Handedness == Handedness.Right)
             {
@@ -81,9 +84,7 @@ public class HandVelocityCalculator : MonoBehaviour
                 _isPreviousLeftPos = true;
             }
             
-            Vector3 playerVelocity = playerRigidbody.velocity;
-            Vector3 relativeHandVelocity = worldVelocity - playerVelocity;
-
+            relativeHandVelocity = worldVelocity - playerVelocity;
             // If the magnitude of relativeHandVelocity is below the threshold, return zero vector
             if (relativeHandVelocity.magnitude < minVelocity)
             {
@@ -100,22 +101,11 @@ public class HandVelocityCalculator : MonoBehaviour
 
             // Get the velocity vector in the palm direction.
             Vector3 palmVelocity = component * relativeHandVelocity.normalized;
-
-            // Debugging info
-            /*Debug.Log(
-                $"deltaTime: {deltaTime}, " +
-                $"worldVelocity: ({worldVelocity.x:F7}, {worldVelocity.y:F7}, {worldVelocity.z:F5}), " +
-                $"playerVelocity: ({playerVelocity.x:F5}, {playerVelocity.y:F5}, {playerVelocity.z:F5}), " +
-                $"palmDirection: ({palmDirection.x:F5}, {palmDirection.y:F5}, {palmDirection.z:F5}), " +
-                $"relativeHandVelocity: ({relativeHandVelocity.x:F5}, {relativeHandVelocity.y:F5}, {relativeHandVelocity.z:F5}), " +
-                $"component: {component}, " +
-                $"palmVelocity: {palmVelocity}"
-            );*/
-
+            
 
             return palmVelocity;
         }
-
+        relativeHandVelocity = Vector3.zero;
         return Vector3.zero; // Return a zero vector if data is unavailable
     }
 }

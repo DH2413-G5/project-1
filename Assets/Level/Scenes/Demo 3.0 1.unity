@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 549991105}
-  m_IndirectSpecularColor: {r: 0.35702324, g: 0.6970393, b: 0.7235334, a: 1}
+  m_IndirectSpecularColor: {r: 0.3570232, g: 0.6970393, b: 0.7235334, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22020,8 +22020,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6897932208346153729, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 464052241}
   m_SourcePrefab: {fileID: 100100000, guid: ea2425722b148384ba27f2a37caa5b88, type: 3}
+--- !u!1 &464052240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6897932208346153729, guid: ea2425722b148384ba27f2a37caa5b88,
+    type: 3}
+  m_PrefabInstance: {fileID: 464052239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &464052241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464052240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982443c1ebd6ddd4e8b0b0b4854a99b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swimStroke: {fileID: 8300000, guid: 63d96c04ea3bc0745ac51af1ed73b7e6, type: 3}
+  swimStrokeTail: {fileID: 8300000, guid: 25472f973e30231449b1fa04e45d3147, type: 3}
+  audioFadeSpeed: 2
+  handTrackingMovementThreshold: 0.3
+  handTrackingVolumeCoefficient: 1
+  windowSize: 5
+  controllerMovementThreshold: 0.4
+  controllerVolumeCoefficient: 2
 --- !u!1001 &466154831
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2703,7 +2703,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TutorialCanvas: {fileID: 238640784}
+  EventCamera: {fileID: 0}
   UIHelper: {fileID: 390827824}
+  HandTrackingEventSystem: {fileID: 0}
 --- !u!1001 &798303786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3482,7 +3484,12 @@ PrefabInstance:
     - target: {fileID: 3654997376026102964, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}
       propertyPath: limitedAngle
-      value: 30
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654997376026102964, guid: ea2425722b148384ba27f2a37caa5b88,
+        type: 3}
+      propertyPath: verticalVelocityCoefficient
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4150795909815271804, guid: ea2425722b148384ba27f2a37caa5b88,
         type: 3}

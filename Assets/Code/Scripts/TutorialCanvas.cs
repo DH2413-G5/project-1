@@ -22,14 +22,23 @@ public class TutorialCanvas : MonoBehaviour
 
     public GameObject EndPanel => endPanel;
 
-    private void Start()
+    private void Awake()
     {
-        HidePanels();       
+        // InitializePanels();
+        HidePanels();
     }
 
     public void HidePanels()
     {
         startPanel.SetActive(false);
+        controllerPanel.SetActive(false);
+        handsPanel.SetActive(false);
+        endPanel.SetActive(false);
+    }
+
+    private void InitializePanels()
+    {
+        startPanel.SetActive(true);
         controllerPanel.SetActive(false);
         handsPanel.SetActive(false);
         endPanel.SetActive(false);

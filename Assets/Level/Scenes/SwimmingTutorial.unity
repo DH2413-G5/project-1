@@ -326,6 +326,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325587549}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &341569433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 427029670433463834, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4467577645681146015}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &390827824 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1732808951507650, guid: a9d2de84afb308a4796cc671d3432b4d,
@@ -3152,7 +3164,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 175, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 40, y: 40, z: 40}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2137559830}
@@ -4419,6 +4431,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3253349756181939682, guid: d63e0aaa986614e4fa5a61df90e86cb4,
         type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 341569433}
+    - target: {fileID: 3253349756181939682, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253349756181939682, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253349756181939682, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253349756181939682, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253349756181939682, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253349756181939682, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253349756181939682, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4432,11 +4479,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 793711948}
+    - target: {fileID: 3253349756181939682, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCheckpointHands
+      objectReference: {fileID: 0}
     - target: {fileID: 4114626015187353494, guid: d63e0aaa986614e4fa5a61df90e86cb4,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1268059212}
+    - target: {fileID: 4799610500887700362, guid: d63e0aaa986614e4fa5a61df90e86cb4,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 28.553303
+      objectReference: {fileID: 0}
     - target: {fileID: 4816403370957458845, guid: d63e0aaa986614e4fa5a61df90e86cb4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4520,7 +4577,7 @@ PrefabInstance:
     - target: {fileID: 4816403370957458845, guid: d63e0aaa986614e4fa5a61df90e86cb4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4816403370957458845, guid: d63e0aaa986614e4fa5a61df90e86cb4,
         type: 3}

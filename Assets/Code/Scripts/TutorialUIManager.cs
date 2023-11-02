@@ -30,7 +30,7 @@ public class TutorialUIManager : MonoBehaviour
     {
         if (_canvasShown && IsOVRControllerConnected())
         {
-            UIHelper.SetActive(true);
+
             Camera cameraComponent =HandTrackingEventSystem.GetComponent<Camera>();
             if (cameraComponent != null)
             {
@@ -38,6 +38,7 @@ public class TutorialUIManager : MonoBehaviour
             }
             TutorialCanvas.GetComponent<Canvas>().worldCamera = EventCamera;
             HandTrackingEventSystem.SetActive(false);
+            UIHelper.SetActive(true);
         }
         else
         {

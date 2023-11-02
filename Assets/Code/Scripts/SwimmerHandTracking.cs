@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody))]
 public class SwimmerHandTracking : MonoBehaviour
@@ -21,6 +22,13 @@ public class SwimmerHandTracking : MonoBehaviour
     [Tooltip("Maximum force applied to rigibody at once.")] [SerializeField]
     private float maxForce;
 
+    [FormerlySerializedAs("horizontalVelocityCoefficient")]
+    [Range(0f, 1f)]
+    [Tooltip(
+        "The velocity in the vertical direction will be multiplied by this coefficient.")]
+    [SerializeField]
+    private float verticalVelocityCoefficient;
+    
     [Tooltip(
         "When the Angle between the direction of the motion speed and the horizontal direction of the world is less than this Angle, the speed in the vertical direction is reduced.")]
     [SerializeField]
@@ -71,7 +79,7 @@ public class SwimmerHandTracking : MonoBehaviour
             if (angleBetween < limitedAngle)
             {
                 // Smoothly reduce vertical speed
-                localVelocity.y *= (angleBetween / limitedAngle);
+                localVelocity.y *= (angleBetween / limitedAngle)*verticalVelocityCoefficient;
             }
 
             Vector3 forceToAdd = localVelocity * swimForce;

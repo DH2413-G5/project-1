@@ -82,7 +82,7 @@ public class SwimmerAudioController : MonoBehaviour
         if (controller == OVRInput.Controller.LTouch)
         {
             leftControllerVelocity = OVRInput.GetLocalControllerVelocity(controller);
-            handTrackingVelocity= leftHandTrackingVelocity.magnitude;
+            handTrackingVelocity= leftHandTrackingVelocity.magnitude;  
             /*Debug.Log("handTrackingVelocity:"+handTrackingVelocity);
             DebugUIManager.Instance.UpdateDebugText("handTrackingVelocity:" + handTrackingVelocity);*/
         }
@@ -108,8 +108,7 @@ public class SwimmerAudioController : MonoBehaviour
             audioSource.volume = (speed >= controllerVolumeCoefficient) ? 1f : speed / controllerVolumeCoefficient;
             tailAudioSource.volume= audioSource.volume;
         }
-
-        if (handTrackingVelocity>0)
+        else if (handTrackingVelocity>0)
         {
             //Reset the volume
             speed = handTrackingVelocity;
@@ -127,28 +126,15 @@ public class SwimmerAudioController : MonoBehaviour
 
     private void PlaySwimStrokeTail()
     {
-        if(controllerVelocity > 0)
-        {
-            if (!leftTailAudioSource.isPlaying)
-            { 
-                leftTailAudioSource.Play();
-            }
-            if (!rightTailAudioSource.isPlaying)
-            {
-                rightTailAudioSource.Play();
-            }
+        if (!leftTailAudioSource.isPlaying)
+        { 
+            leftTailAudioSource.Play();
         }
-        else
+        if (!rightTailAudioSource.isPlaying)
         {
-            if (!leftTailAudioSource.isPlaying)
-            {
-                leftTailAudioSource.Play();
-            }
-            if (!rightTailAudioSource.isPlaying)
-            {
-                rightTailAudioSource.Play();
-            }
+            rightTailAudioSource.Play();
         }
+        
     }
 
     private void FadeOutAudio(AudioSource audioSource)
@@ -166,7 +152,7 @@ public class SwimmerAudioController : MonoBehaviour
     public void ReceiveVelocities((Vector3 leftVelocityVector, Vector3 rightVelocityVector) velocities)
     {
         _velocities=velocities;
-        Debug.Log("ReceiveVelocities"+_velocities.leftVelocityVector.magnitude);
+        // Debug.Log("ReceiveVelocities"+_velocities.leftVelocityVector.magnitude);
         // Use a moving average filter for processing speed
         leftHandTrackingVelocity = leftHandVelocityFilter.Process(_velocities.leftVelocityVector);
         rightHandTrackingVelocity = rightHandVelocityFilter.Process(_velocities.rightVelocityVector);

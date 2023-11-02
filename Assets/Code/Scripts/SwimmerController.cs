@@ -130,7 +130,7 @@ namespace Code.Scripts
             _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
         }
 
-        private void OnDrawGizmos()
+        /*private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
 
@@ -139,6 +139,6 @@ namespace Code.Scripts
                 OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch) * Vector3.forward);
 
             // Debug.DrawLine(OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch), );
-        }
+        }*/
     }
 }

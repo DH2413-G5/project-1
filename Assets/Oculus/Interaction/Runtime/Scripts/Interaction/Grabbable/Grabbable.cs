@@ -40,6 +40,8 @@ namespace Oculus.Interaction
 
         [SerializeField]
         private int _maxGrabPoints = -1;
+        
+        public bool isGrabbed = false;
 
         public int MaxGrabPoints
         {
@@ -122,9 +124,12 @@ namespace Oculus.Interaction
             {
                 case PointerEventType.Select:
                     BeginTransform();
+                    isGrabbed=true;
+                    Debug.Log(isGrabbed);
                     break;
                 case PointerEventType.Unselect:
                     BeginTransform();
+                    isGrabbed=false;
                     break;
                 case PointerEventType.Move:
                     UpdateTransform();
@@ -139,7 +144,6 @@ namespace Oculus.Interaction
             // End the transform on any existing transformer before we
             // begin the new one
             EndTransform();
-
             int useGrabPoints = _selectingPoints.Count;
             if (_maxGrabPoints != -1)
             {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Canvas))]
 public class TutorialCanvas : MonoBehaviour
 {
     // Panel to be shown at the start of the Tutorial
@@ -21,6 +22,8 @@ public class TutorialCanvas : MonoBehaviour
     public GameObject HandsPanel => handsPanel;
 
     public GameObject EndPanel => endPanel;
+
+    public Canvas Canvas => GetComponent<Canvas>();
 
     private void Awake()
     {

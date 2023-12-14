@@ -10,17 +10,17 @@ public class TutorialUIManager : MonoBehaviour
     [SerializeField] private GameObject UIHelper;
     [SerializeField] private GameObject HandEventSystemObject;
     [SerializeField] private GameObject ControllerEventSystemObject;
+    [SerializeField] private GameObject DebugCanvas;
     // [SerializeField] private GameObject EventSystem;
     
 
     private bool _controllerPanelShown;
     private bool _handsPanelShown;
     private bool _canvasShown;
-    private bool _changed;
     private GameObject _nextPanel;
 
-    private EventSystem controllerEventSystem;
-    private EventSystem handEventSystem;
+    private EventSystem _controllerEventSystem;
+    private EventSystem _handEventSystem;
     
     private void Start()
     {
@@ -30,9 +30,8 @@ public class TutorialUIManager : MonoBehaviour
         _controllerPanelShown = false;
         _nextPanel = TutorialCanvas.StartPanel;
         _canvasShown = true;
-        _changed = true;
-        controllerEventSystem = ControllerEventSystemObject.GetComponent<EventSystem>();
-        handEventSystem = HandEventSystemObject.GetComponent<EventSystem>();
+        _controllerEventSystem = ControllerEventSystemObject.GetComponent<EventSystem>();
+        _handEventSystem = HandEventSystemObject.GetComponent<EventSystem>();
         // Can only have one EventSystem active at a time.
         HandEventSystemObject.SetActive(false);
         ShowPanel();
@@ -42,27 +41,32 @@ public class TutorialUIManager : MonoBehaviour
     void Update()
     {
         
-        if (_canvasShown && IsOVRControllerConnected())
+        if ((_canvasShown || DebugCanvas.activeSelf) && IsOVRControllerConnected())
         {
             // Camera cameraComponent = EventSystem.GetComponent<Camera>();
             // if (cameraComponent != null)
             // {
                 // Destroy(cameraComponent);
             // }
-            
-            HandEventSystemObject.SetActive(false);
+            if (HandEventSystemObject.activeSelf)
+            {
+                HandEventSystemObject.SetActive(false);
+            }
             TutorialCanvas.Canvas.worldCamera = EventCamera;
             
             
             UIHelper.SetActive(true);
-            EventSystem.current = controllerEventSystem;
+            EventSystem.current = _controllerEventSystem;
         }
         else
         {
-            UIHelper.SetActive(false);
+            if (UIHelper.activeSelf)
+            {
+                UIHelper.SetActive(false);
+            }
             HandEventSystemObject.SetActive(true);
             TutorialCanvas.Canvas.worldCamera = HandEventSystemObject.GetComponent<Camera>();
-            EventSystem.current = handEventSystem;
+            EventSystem.current = _handEventSystem;
         }
 
         if (_controllerPanelShown && _handsPanelShown)

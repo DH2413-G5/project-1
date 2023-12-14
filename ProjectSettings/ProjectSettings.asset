@@ -141,6 +141,8 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 11400000, guid: 601bcd98b6a191844aa5c07f77b1adc4, type: 2}
+  - {fileID: 8965703308906667561, guid: 9c01509c72baa554aac293b30cc3ad4f, type: 2}
+  - {fileID: 11400000, guid: dad0093117a0593489c7cf5a8bb045fe, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -160,7 +162,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.agi23.submergency.v2
+    Android: com.agi23.submergency.v3
     Standalone: com.Unity-Technologies.com.unity.template.urp-blank
     iPhone: com.Unity-Technologies.com.unity.template.urp-blank
   buildNumber:

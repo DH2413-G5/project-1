@@ -33,7 +33,8 @@ public class TutorialUIManager : MonoBehaviour
         _controllerEventSystem = ControllerEventSystemObject.GetComponent<EventSystem>();
         _handEventSystem = HandEventSystemObject.GetComponent<EventSystem>();
         // Can only have one EventSystem active at a time.
-        HandEventSystemObject.SetActive(false);
+        // HandEventSystemObject.SetActive(false);
+        TurnOnController();
         ShowPanel();
     }
 
@@ -43,12 +44,8 @@ public class TutorialUIManager : MonoBehaviour
         
         if ((_canvasShown || DebugCanvas.activeSelf) && IsOVRControllerConnected())
         {
-            // Camera cameraComponent = EventSystem.GetComponent<Camera>();
-            // if (cameraComponent != null)
-            // {
-                // Destroy(cameraComponent);
-            // }
-            if (HandEventSystemObject.activeSelf)
+            
+            /*if (HandEventSystemObject.activeSelf)
             {
                 HandEventSystemObject.SetActive(false);
             }
@@ -56,19 +53,22 @@ public class TutorialUIManager : MonoBehaviour
             
             
             UIHelper.SetActive(true);
-            EventSystem.current = _controllerEventSystem;
+            EventSystem.current = _controllerEventSystem;*/
+            TurnOnController();
         }
         else
         {
-            if (UIHelper.activeSelf)
+            /*if (UIHelper.activeSelf)
             {
                 UIHelper.SetActive(false);
             }
             HandEventSystemObject.SetActive(true);
             TutorialCanvas.Canvas.worldCamera = HandEventSystemObject.GetComponent<Camera>();
-            EventSystem.current = _handEventSystem;
+            EventSystem.current = _handEventSystem;*/
+            TurnOnHandtracking();
         }
 
+        // If both tutorials have been completed, show the final panel.
         if (_controllerPanelShown && _handsPanelShown)
         {
             _nextPanel = TutorialCanvas.EndPanel;
@@ -97,6 +97,32 @@ public class TutorialUIManager : MonoBehaviour
     {
         _nextPanel = TutorialCanvas.HandsPanel;
         _handsPanelShown = true;
+    }
+
+    private void TurnOnController()
+    {
+        // Turn on event systems for Controller
+        TutorialCanvas.Canvas.worldCamera = EventCamera;
+        UIHelper.SetActive(true);
+        EventSystem.current = _controllerEventSystem;
+        // Turn off Hand-tracking
+        if (HandEventSystemObject.activeSelf)
+        {
+            HandEventSystemObject.SetActive(false);
+        }
+    }
+
+    private void TurnOnHandtracking()
+    {
+        // Turn on Hand-tracking
+        HandEventSystemObject.SetActive(true);
+        TutorialCanvas.Canvas.worldCamera = HandEventSystemObject.GetComponent<Camera>();
+        EventSystem.current = _handEventSystem;
+        // Turn off Controller
+        if (UIHelper.activeSelf)
+        {
+            UIHelper.SetActive(false);
+        }
     }
 
     

@@ -1,13 +1,18 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+
+/*
+ * Used for the first hand-tracking checkpoint. A two-step checkpoint, to first teach the swimming pose and then the
+ * swimming motion to the player.
+ */
 
 namespace Code.Scripts.Checkpoints {
     public class CheckpointHandInputTrigger : Checkpoint
     {
         [SerializeField] private SwimmerHandTracking playerHands;
+        // Visuals to show the player which pose to strike to get into swimming mode.
         [SerializeField] private GameObject handPoseTutorial;
+        // Visuals to show the player how to swim forward.
         [SerializeField] private GameObject swimmingMotionTutorial;
 
         private Collider _collider;
@@ -25,7 +30,7 @@ namespace Code.Scripts.Checkpoints {
         
 
         private bool IsSwimPose() {
-            // Check if the Grab button on Oculus Touch controllers is pressed
+            // Check if hands are in the SwimmingPose
             bool leftHandPose = playerHands.IsLeftHandSwim;
             bool rightHandPose = playerHands.IsRightHandSwim;
 
@@ -44,7 +49,6 @@ namespace Code.Scripts.Checkpoints {
 
         public void SwimDetection()
         {
-            // ADD SWIMMING DETECTION LOGIC
             OnCheckpointReached?.Invoke();
         }
 

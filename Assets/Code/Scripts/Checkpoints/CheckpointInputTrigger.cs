@@ -1,7 +1,10 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+
+/*
+ * Used for the first controller checkpoint. A two-step checkpoint, to first teach which buttons to press to get into
+ * swimming mode and then how to swim in a direction.
+ */
 
 namespace Code.Scripts.Checkpoints {
     public class CheckpointInputTrigger : Checkpoint {
@@ -42,7 +45,6 @@ namespace Code.Scripts.Checkpoints {
 
         private void SwimDetection()
         {
-            // ADD SWIMMING DETECTION LOGIC
             OnCheckpointReached?.Invoke();
         }
 

@@ -100,8 +100,6 @@ namespace Code.Scripts
             // Calculate the angle between the velocity and the horizontal direction
             Vector3 horizontalDirection = new Vector3(worldVelocity.x, 0, worldVelocity.z);
             float angleBetween = Vector3.Angle(horizontalDirection, worldVelocity);
-            // Print the velocities to Unity Console
-            // Debug.Log("Local Velocity: " + localVelocity);
             worldVelocity *= -1;
 
             if (angleBetween < limitedAngle)
@@ -113,7 +111,6 @@ namespace Code.Scripts
             if (worldVelocity.sqrMagnitude > minVelocity)
             {
                 // Print the values to the Unity console
-                // Debug.Log("Local Velocity: " + localVelocity.ToString());
 
                 // Clamping the force to ensure it doesn't exceed maxForce
                 Vector3 forceToAdd = worldVelocity * swimForce;
@@ -129,16 +126,6 @@ namespace Code.Scripts
             // Apply constant downward force for gravity.
             _rigidbody.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
         }
-
-        /*private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-
-            Vector3 RControllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
-            Gizmos.DrawLine(RControllerPosition,
-                OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch) * Vector3.forward);
-
-            // Debug.DrawLine(OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch), );
-        }*/
+       
     }
 }

@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Script used to manually apply gravity to objects that are inside this gameObjects trigger box.
+ */
+
 public class ApplyGravity : MonoBehaviour
 {
     private Collider _collider;

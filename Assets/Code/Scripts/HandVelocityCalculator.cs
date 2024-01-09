@@ -4,6 +4,10 @@ using Oculus.Interaction.Input;
 using Oculus.Interaction.PoseDetection;
 using Unity.VisualScripting;
 
+/*
+ * Script used to calculate the Velocity for Hand-tracking Swimming
+ */
+
 public class HandVelocityCalculator : MonoBehaviour
 {
     [Tooltip("Left hand's IHand implementation.")] [SerializeField, Interface(typeof(IHand))]

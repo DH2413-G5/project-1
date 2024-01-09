@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 
+/*
+ *  Used for the basic swimming tutorial. Triggers the checkpoint, if player enters it's collision boundary.
+ */
+
 namespace Code.Scripts.Checkpoints
 {
     [RequireComponent(typeof(Collider))]

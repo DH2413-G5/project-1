@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+/*
+ * Script attached to the Hand Shadows and updates their position
+ */
 public class HandShadowRepositioner : MonoBehaviour
 {
 

@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 
+/*
+ * Script that controls the UI elements, such as panels, in the tutorial scene.
+ */
+
 public class TutorialUIManager : MonoBehaviour
 {
     [SerializeField] private TutorialCanvas TutorialCanvas;
@@ -11,7 +15,6 @@ public class TutorialUIManager : MonoBehaviour
     [SerializeField] private GameObject HandEventSystemObject;
     [SerializeField] private GameObject ControllerEventSystemObject;
     [SerializeField] private GameObject DebugCanvas;
-    // [SerializeField] private GameObject EventSystem;
     
 
     private bool _controllerPanelShown;
@@ -32,9 +35,9 @@ public class TutorialUIManager : MonoBehaviour
         _canvasShown = true;
         _controllerEventSystem = ControllerEventSystemObject.GetComponent<EventSystem>();
         _handEventSystem = HandEventSystemObject.GetComponent<EventSystem>();
-        // Can only have one EventSystem active at a time.
-        // HandEventSystemObject.SetActive(false);
+        // We can only have on EventSystem active. Hence we start off with Controller.
         TurnOnController();
+        // Show the first panel
         ShowPanel();
     }
 
@@ -44,27 +47,10 @@ public class TutorialUIManager : MonoBehaviour
         
         if ((_canvasShown || DebugCanvas.activeSelf) && IsOVRControllerConnected())
         {
-            
-            /*if (HandEventSystemObject.activeSelf)
-            {
-                HandEventSystemObject.SetActive(false);
-            }
-            TutorialCanvas.Canvas.worldCamera = EventCamera;
-            
-            
-            UIHelper.SetActive(true);
-            EventSystem.current = _controllerEventSystem;*/
             TurnOnController();
         }
         else
         {
-            /*if (UIHelper.activeSelf)
-            {
-                UIHelper.SetActive(false);
-            }
-            HandEventSystemObject.SetActive(true);
-            TutorialCanvas.Canvas.worldCamera = HandEventSystemObject.GetComponent<Camera>();
-            EventSystem.current = _handEventSystem;*/
             TurnOnHandtracking();
         }
 

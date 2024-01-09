@@ -2,8 +2,13 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
+/*
+ * Manager Script for the Debug Panel. Can only be triggered used Hand Controllers.
+ */
+
 public class DebugPanelManager : MonoBehaviour
 {
+    // Sets start position for the ResetPosition button
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private int tutorialSceneBuildIndex = 0;
@@ -24,17 +29,20 @@ public class DebugPanelManager : MonoBehaviour
 
     private void Update()
     {
+        // Check if button to show the DebugPanel is pressed
         if (OVRInput.Get(OVRInput.Button.SecondaryThumbstick))
         {
             _pressed = true;
         }
 
+        // Check for release
         if (_pressed && !OVRInput.Get(OVRInput.Button.SecondaryThumbstick))
         {
             _released = true;
             _pressed = false;
         }
         
+        // Show Debug panel if released
         if (_released)
         {
             debugPanel.SetActive(!debugPanel.activeSelf);

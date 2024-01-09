@@ -27,11 +27,9 @@ public class TriggerAboveSurface : MonoBehaviour
         if (!m_MyAudioSource.isPlaying)
         {
             m_MyAudioSource.Play();
-            Debug.Log("Above surface audio played");
         }
         // Deactivate fog
         RenderSettings.fog = false;
-        Debug.Log("Fog deactivated");
     }
 
     void OnTriggerExit(Collider other)   
@@ -40,10 +38,8 @@ public class TriggerAboveSurface : MonoBehaviour
         if (m_MyAudioSource.isPlaying)
         {
             m_MyAudioSource.Stop();
-            Debug.Log("Above surface audio stopped");
         }
         // Activate fog
         RenderSettings.fog = true;
-        Debug.Log("Fog activated");
     }
 }

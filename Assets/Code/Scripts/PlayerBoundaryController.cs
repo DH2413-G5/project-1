@@ -1,5 +1,9 @@
 using System.Collections;
 using UnityEngine;
+/*
+ * Script used to keep the player inside the Boundary, determined by the size of the collision box that is
+ * attached to the gameObject of this script.
+ */
 
 namespace Code.Scripts
 {
@@ -35,12 +39,6 @@ namespace Code.Scripts
             // Don't activate popup if it is still showing.
             if (_popupIsActive) return;
             StartCoroutine(ShowPopUp(AnimationTime));
-        }
-
-        private void OnTriggerEnter(Collider player)
-        {
-            // boundaryWarningPopup.SetActive(false);
-            // Debug.Log("Player Entered Area!");
         }
 
 
@@ -84,9 +82,6 @@ namespace Code.Scripts
         {
             var pushBackForce = CalculatePushBackForce(player);
             player.gameObject.GetComponent<Rigidbody>().AddForce(pushBackForce,ForceMode.Acceleration);
-            // Debug.Log("Player: " + _gameObject.name + " Rigidbody: " + player.gameObject.GetComponent<Rigidbody>());
-            // Debug.Log("Push Back Force: " + pushBackForce + " Applied");
-            
         }
     }
 }

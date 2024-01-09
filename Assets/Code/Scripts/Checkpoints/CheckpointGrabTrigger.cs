@@ -3,6 +3,10 @@ using System.Linq;
 using Code.Scripts.Checkpoints;
 using UnityEngine;
 
+/*
+ * Used for the grabbing tutorial step. Checks whether an object was grabbed or not.
+ */
+
 public class CheckpointGrabTrigger : Checkpoint
 {
 

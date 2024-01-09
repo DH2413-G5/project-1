@@ -5,16 +5,21 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
+/*
+ * Script, which manages all the checkpoints
+ */
+
 namespace Code.Scripts.Checkpoints
 {   
     public class CheckpointController : MonoBehaviour
     {
-
+        // Fill with checkpoint gameObjects. Make sure that they are in chronological order! 
         [SerializeField] private List<Checkpoint> checkpointsController;
         [SerializeField] private List<Checkpoint> checkpointsHands;
+        // Current list of checkpoints
         private List<Checkpoint> _checkpoints;
-        [SerializeField] private string nextSceneName;
         private Checkpoint _currentCheckpoint;
+        [SerializeField] private string nextSceneName;
         [SerializeField] private Transform ControllerStartPosition;
         [SerializeField] private Transform HandsStartPosition;
         [SerializeField] private Transform PlayerTransform;
@@ -152,8 +157,6 @@ namespace Code.Scripts.Checkpoints
 
             while (!_asyncOperation.isDone)
             {
-                // Debug.Log($"[scene]:{nextScenePath} [load progress]: {_asyncOperation.progress}");
-
                 yield return null;
             }
         }

@@ -73,8 +73,6 @@ public class SwimmerHandTracking : MonoBehaviour
             // Calculate the angle between the velocity and the horizontal direction
             Vector3 horizontalDirection = new Vector3(localVelocity.x, 0, localVelocity.z);
             float angleBetween = Vector3.Angle(horizontalDirection, localVelocity);
-            // Print the velocities to Unity Console
-            // Debug.Log("Local Velocity: " + localVelocity);
 
             if (angleBetween < limitedAngle)
             {
@@ -87,8 +85,6 @@ public class SwimmerHandTracking : MonoBehaviour
             forceToAdd = Vector3.ClampMagnitude(forceToAdd, maxForce);
 
             _rigidbody.AddForce(forceToAdd, ForceMode.Acceleration);
-            /*Debug.Log("forceToAdd：" + forceToAdd);
-            Debug.Log("Swimming");*/
         }
 
         // Apply water drag force if player is moving

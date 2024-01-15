@@ -25,7 +25,7 @@
   --default-color-rgb: 33, 37, 41;
   --primary-color: #128EB6;
   --primary-color-rgb: 63, 170, 205;
-  --secondary-color: #32353a;
+  --secondary-color: #ffffff;
   --secondary-color-rgb: 50, 53, 58;
   --contrast-color: #ffffff;
   --contrast-color-rgb: 255, 255, 255;
@@ -71,6 +71,18 @@ h5,
 h6 {
   color: var(--secondary-color);
   font-family: var(--heading-font);
+}
+
+p {
+  color: var(--secondary-color);
+}
+
+li {
+  color: var(--secondary-color);
+}
+
+span {
+  color: var(--secondary-color);
 }
 
 section {
@@ -674,7 +686,7 @@ section {
 ------------------------------*/
 .profiles {
   padding: 10px 0;
-  --background-color: #f4f4f4;
+  --background-color: #1D4E70;
 }
 
 .profiles .profile-img {
@@ -688,12 +700,6 @@ section {
   padding: 40px;
   max-width: 100%;
   transition: 0.3s;
-}
-
-@media (max-width: 640px) {
-  .profiles .profile-img img {
-    padding: 20px;
-  }
 }
 
 /* Main Content section - Home Page
@@ -710,21 +716,6 @@ section {
   text-align: center;
 }
 
-.process .content h3 {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 19px;
-  padding: 10px 20px;
-  background: rgba(var(--primary-color-rgb), 0.05);
-  color: var(--primary-color);
-  border-radius: 7px;
-  display: inline-block;
-}
-
-.process .content h2 {
-  font-weight: 700;
-}
-
 .process .icon-box {
   padding: 50px 40px;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.5);
@@ -734,6 +725,7 @@ section {
 }
 
 .process .icon-box h3 {
+  color: #32353a;
   margin-bottom: 10px;
   font-size: 24px;
   font-weight: 700;
@@ -741,4 +733,12 @@ section {
 
 .process .icon-box p {
   margin-bottom: 0;
+  color: #32353a;
+}
+
+/* Reference Section - Home Page
+------------------------------*/
+.references {
+  --background-color: #1D4E70;
+  text-align: center;
 }

@@ -707,6 +707,7 @@ section {
 ------------------------------*/
 .process {
   --background-color: #1D4E70;
+  text-align: center;
 }
 
 .process .content h3 {

@@ -104,6 +104,7 @@ section {
   font-size: 32px;
   font-weight: 700;
   position: relative;
+  padding-top: 30px;
 }
 
 .section-title h3 {
@@ -685,8 +686,8 @@ section {
 /* Profiles Section - Home Page
 ------------------------------*/
 .profiles {
-  padding: 10px 0;
   --background-color: #1D4E70;
+  padding-top: 0%;
 }
 
 .profiles .profile-img {
@@ -707,6 +708,8 @@ section {
 .maincontent {
   --background-color: #1D4E70;
   padding-left: 50px;
+  padding-top: 0%;
+  padding-bottom: 20px;
 }
 
 /* Process Section - Home Page
@@ -714,6 +717,7 @@ section {
 .process {
   --background-color: #1D4E70;
   text-align: center;
+  padding-top: 0%;
 }
 
 .process .icon-box {
@@ -741,4 +745,5 @@ section {
 .references {
   --background-color: #1D4E70;
   text-align: center;
+  padding-top: 0%;
 }

@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/logo.png" rel="icon"> <!-- put some other icon here? it's for the browser tab -->
+  <link href="assets/img/logo.png" rel="icon"> 
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -51,7 +51,7 @@
       <!-- Nav Menu -->
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#submergencyexperience" class="active">The experience</a></li><!-- section was: #hero -->
+          <li><a href="index.html#submergencyexperience" class="active">The experience</a></li>
           <li><a href="index.html#process">The process</a></li><!-- was: #about -->
           <li><a href="index.html#references">References and resources</a></li><!-- was: #services -->
         </ul>
@@ -64,22 +64,14 @@
 
   <main id="main">
 
-    <!-- Hero Section - Home Page -->
-    <section id="submergencyexperience" class="hero">
+    <!-- Demo Section - Home Page -->
+    <section id="submergencyexperience" class="demo">
 
-      <img src="assets/img/climate-change-concept-collage.jpg" alt="" data-aos="fade-in">
-      
-      <!-- Need to put this link in close vicinity of the image:
-        Copy this link and paste it in a visible place, close to where you’re using the image. 
-        If that’s not possible, place it at the footer of your website, blog or newsletter, or in the credits section.
-        Image by <a href="https://www.freepik.com/free-photo/climate-change-concept-collage_19332542.htm#query=plastic%20pollution%20ocean&position=2&from_view=search&track=ais">Freepik</a>
-      -->
-    </section><!-- End Hero Section -->
-
-    <!-- Image source section -->
-    <section id="image_link" class="freepik">
-      <p>Image by <a href="https://www.freepik.com/free-photo/climate-change-concept-collage_19332542.htm#query=plastic%20pollution%20ocean&position=2&from_view=search&track=ais">Freepik</a></p>
-    </section><!-- End of image source section-->
+      <video width="100%" height="auto" controls autoplay loop>
+        <source src="assets/videos/Submergency_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag. <!-- Fallback message -->
+      </video>
+    </section><!-- End Demo Section -->
 
     <!-- Main content section -->
     <section id="maincontent" class="maincontent">
@@ -119,6 +111,24 @@
 
         <!--  Section Title -->
         <div class="container section-title" data-aos="fade-up">
+          <h2>How does one interact?</h2>
+        </div><!-- End Section Title -->
+
+        <div class="main" data-aos="fade-up" data-aos-delay="200">
+          <p>There are two ways of interacting with our virtual environment:</p>
+          <h3>Quest 2 + Hand-held Controllers</h3>
+          <p>The participant puts on the Quest 2 headset and stands within a demarcated space on the ground. They use two hand-help Quest 2 
+            controllers in order to move. The controllers are moved in a natural swimming motion. The participant must hold down a button at 
+            the start of a movement and release the button at its end. There is another button for grasping objects. The direction of the 
+            swimming motion determines the direction in which the participant will be propelled.</p>
+          <h3>Quest 2 + Hand Tracking</h3>
+          <p>The participant puts on the Quest 2 headset and stands within a demarcated space on the ground.  They must move their hands in 
+            the natural swimming motion while keeping their fingers together as one would while swimming.  The direction of the swimming motion 
+            determines the direction in which the participant will be propelled.</p>
+        </div>
+
+        <!--  Section Title -->
+        <div class="container section-title" data-aos="fade-up">
           <h2>Technology used</h2>
         </div><!-- End Section Title -->
 
@@ -133,6 +143,18 @@
             <li>Google Drive, Docs, Slides (for note-taking, making presentations, preparing submissions and record keeping)</li>
           </ul>
         </div>
+        
+        <!--  Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Who is it for?</h2>
+        </div><!-- End Section Title -->
+
+        <div class="main" data-aos="fade-up" data-aos-delay="200">
+          <p>Submergency is built for a large variety of people, there is something for everyone. Experiencing the reality of our oceans 
+            through a novel swimming experience is exciting for adults and children alike. The ocean is filled with things like plants, 
+            beautiful fish, and unfortunately plastics. This project hopes to raise awareness about the problem of plastic pollution for 
+            adults and children alike.</p>
+        </div>
 
         <!--  Section Title -->
         <div class="container section-title" data-aos="fade-up">
@@ -146,8 +168,8 @@
       
     </section><!-- End Main content section -->
 
-    <!-- About Section - Home Page -->
-    <section id="process" class="about">
+    <!-- Process Section - Home Page -->
+    <section id="process" class="process">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -402,162 +424,11 @@
             </div>
           </div><!-- End Team Member -->
 
-          <!--<div class="col-xl-2 col-md-3 col-6 profile-img">
-            <img src="assets/img/profiles/Linnéa.jpg" class="img-fluid" alt="">
-          </div><!-- End Profile Item -->
-
         </div>
 
       </div>
 
     </section><!-- End Profiles Section -->
-
-    <!-- Testimonials Section - Home Page (maybe we want to use this later on for user testimonials?)-->
-    <!-- <section id="testimonials" class="testimonials">
-
-      <div class="container">
-
-        <div class="row align-items-center">
-
-          <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
-            <h3>Testimonials</h3>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-            </p>
-          </div>
-
-          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="swiper">
-              <template class="swiper-config">
-                {
-                "loop": true,
-                "speed" : 600,
-                "autoplay": {
-                "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-                }
-                }
-              </template>
-              <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                  <div class="testimonial-item">
-                    <div class="d-flex">
-                      <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">
-                      <div>
-                        <h3>Saul Goodman</h3>
-                        <h4>Ceo & Founder</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                      <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div><!-- End testimonial item 
-
-                <div class="swiper-slide">
-                  <div class="testimonial-item">
-                    <div class="d-flex">
-                      <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0" alt="">
-                      <div>
-                        <h3>Sara Wilsson</h3>
-                        <h4>Designer</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                      <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div><!-- End testimonial item 
-
-                <div class="swiper-slide">
-                  <div class="testimonial-item">
-                    <div class="d-flex">
-                      <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0" alt="">
-                      <div>
-                        <h3>Jena Karlis</h3>
-                        <h4>Store Owner</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                      <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div><!-- End testimonial item 
-
-                <div class="swiper-slide">
-                  <div class="testimonial-item">
-                    <div class="d-flex">
-                      <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img flex-shrink-0" alt="">
-                      <div>
-                        <h3>Matt Brandon</h3>
-                        <h4>Freelancer</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                      <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div><!-- End testimonial item 
-
-                <div class="swiper-slide">
-                  <div class="testimonial-item">
-                    <div class="d-flex">
-                      <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img flex-shrink-0" alt="">
-                      <div>
-                        <h3>John Larson</h3>
-                        <h4>Entrepreneur</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      <i class="bi bi-quote quote-icon-left"></i>
-                      <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                      <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div><!-- End testimonial item 
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- End Testimonials Section -->
 
   </main>
 

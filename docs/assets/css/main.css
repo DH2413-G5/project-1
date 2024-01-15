@@ -598,9 +598,19 @@ section {
   font-weight: 700;
 }
 
+.process .icon-box h5 {
+  color: #32353a;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+}
+
 .process .icon-box p {
   margin-bottom: 0;
   color: #32353a;
+  text-align: left;
 }
 
 /* Reference Section - Home Page

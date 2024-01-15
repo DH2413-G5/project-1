@@ -196,7 +196,7 @@
           Your browser does not support the video tag. <!-- Fallback message -->
         </video>
 
-        <div class="row align-items-xl-center gy-5">
+        <div class="row align-items-center">
 
             <div class="row gy-4 icon-boxes">
 
@@ -204,7 +204,9 @@
                 <div class="icon-box">
                   <h3>The environment</h3>
                   <p>Most of the rocks are free downloaded 3D models but with different applied textures and normal maps. 
-                  LODs are also added to all rocks. They are all saved as prefabs and placed out in different locations in the environment.</p>
+                  LODs are also added to all rocks. They are all saved as prefabs and placed out in different locations in the environment.
+                  Some rocks and corals (including the materials) are however modeled by us, and so is the kelp that we have used to decorate the environment.
+                  The kelp was also animated through weight painting and rigging.</p>
 
                   <p>To create the sand and mountains, terrain tools have been used and colored with different diffuse textures and normal maps. 
                   The terrain has also been painted to be lowered and raised in different spots to bring the terrain more to life. 
@@ -212,46 +214,36 @@
                   Therefore, if you made one little change to one small part of the terrain, everything had to be changed. 
                   It was also not decided on exactly how we wanted the terrain so there were lots of tries and failures.</p>
 
+                  <p>The fish are six different free downloaded 3D models with bone structure. Rigidbody, box collider, animation, rig builder, 
+                    LODs and a FishMovement script that controls how the fish will move around has been applied to every fish prefab. Another 
+                    script then spawns the fish in the environment. The fish started out as particle systems with sprites. This actually worked 
+                    surprisingly well as a fish representation when swimming along the timeline and was a good optimization strategy. However, 
+                    there were also a number of issues with this solution. As sprites are always facing the camera in the same direction, the 
+                    fish appeared to be swimming backwards if looking at the fish from the back and did not cast any shadows. We thought it was 
+                    important to therefore turn them into 3D models instead. </p>
+
                   <p>We started out by looking for free 3D Unity assets to add plastic trash to our environment, but this proved somewhat hard to come by. 
                   Therefore some of the objects had to be modeled in Blender, and then imported into Unity. One challenge with this part of the 
                   environment was that the amount of objects needed to convey the reality of how plastic pollution of the oceans has increased 
                   over the decades posed serious processing issues. To solve this, LODs had to be applied, and some parts of the environment where 
-                  the user cannot go was decorated with static meshes, instead of interactable objects. </p>
+                  the user cannot go was decorated with static meshes, instead of interactable objects. Another challenge we faced regarded importing
+                  materials created in Blender, because Unity cannot read the entire node maps used in Blender to create materials. Thus, the materials 
+                  we wanted to import had to be converted to a form suitable for Unity.</p>
+
+                  <h5>Saga</h5>
+                  <p>Created the sand and mountains, and worked on the fish.</p>
+
+                  <h5>Akshata</h5>
+                  <p>Modeled the kelp, the rocks, and a few different corals. Animated the kelp.</p>
+
+                  <h5>Sofia</h5>
+                  <p>Modeled some plastic objects and their materials. Responsible for placing plastic objects in the environment according to actual data
+                    on how the amount of plastic in our oceans has increased over the decades. 
+                  </p>
                 </div>
               </div> <!-- End Environment Box -->
 
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon-box">
-                  <h3>Water and post-processing</h3>
-                  <p>To create the underwater environment, several methods were used. 
-                    Different post-processing effects were implemented: <b>Split toning</b> with brown shadows and blue highlights; 
-                    <b>Bloom</b> with a tint of blue; <b>Chromatic aberration</b>; <b>Lens distortion</b>; A dark blue <b>vignette</b>. 
-                    A blue <b>linear fog</b> was also applied. To add more life to the water, 
-                    <b>bubble particle systems</b> were placed throughout the ocean floor, decreasing along the timeline. 
-                    <b>Light beams</b> were created, using a particle system with stretched additive-blended particles.</p>
-
-                    <p>There are quite many assets for creating realistic-looking underwater environments, but not many for free. 
-                    Since we did not want this project to have any paid assets, we had to create most of the water from scratch, 
-                    which was time-consuming and required a good deal of Unity experience. </p>
-
-                    <p>There was also the issue that the water looked quite different in the Oculus Quest 2 (i.e., blurrier) 
-                    than on a computer screen, so we had to go back and remove the initially applied Depth of Field effect 
-                    (Gaussian blur), and also take away the Color Adjustments we used in our first drafts. 
-                    A learning from this process is that finding information about how to create advanced graphics, like underwater 
-                    environments, can be rather complex and cumbersome, and might require a lot of prior knowledge.</p>
-                </div>
-              </div> <!-- End Water and post-processing Box -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon-box">
-                  <h3>Audio</h3>
-                  <p>We created our own <b>Submergency soundtrack</b> and <b>sound effects</b> using Logic Pro. The soundtrack is played 
-                  as background audio throughout the whole experience. We have sound effects for the <b>swimming motion</b>, i.e., 
-                  a sound that is triggered when initiating a swim stroke, and a longer audio tail is audible as long as the user moves.</p>
-                </div>
-              </div> <!-- End Audio Box -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                 <div class="icon-box">
                   <h3>Swimming experience</h3>
                   <p>In this vibrant underwater environment, we've created a lifelike swimming experience for players through numerous 
@@ -279,8 +271,74 @@
                   sessions. After several days of investigation, we discovered inherent issues with the method provided by Oculus, 
                   forcing us to reevaluate and discard a significant portion of our previous work. By rewriting Oculus's method, 
                   we finally solved the issue of acquiring hand velocity.</p>
+
+                  <h5>Jacky</h5>
+                  <p>Focused mainly on the swimming mechanics using Controllers.</p>
+
+                  <h5>Shiqi</h5>
+                  <p>Focused mainly on the hand tracking interaction.</p>
                 </div>
               </div> <!-- End Swimming experience Box -->
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box">
+                  <h3>Water and post-processing</h3>
+                  <p>To create the underwater environment, several methods were used. 
+                    Different post-processing effects were implemented: <b>Split toning</b> with brown shadows and blue highlights; 
+                    <b>Bloom</b> with a tint of blue; <b>Chromatic aberration</b>; <b>Lens distortion</b>; A dark blue <b>vignette</b>. 
+                    A blue <b>linear fog</b> was also applied. To add more life to the water, 
+                    <b>bubble particle systems</b> were placed throughout the ocean floor, decreasing along the timeline. 
+                    <b>Light beams</b> were created, using a particle system with stretched additive-blended particles.</p>
+
+                    <p>For the surface, we used the built-in ShaderGraph in the URP render-pipeline.</p>
+
+                    <p>There are quite many assets for creating realistic-looking underwater environments, but not many for free. 
+                    Since we did not want this project to have any paid assets, we had to create most of the water from scratch, 
+                    which was time-consuming and required a good deal of Unity experience. </p>
+
+                    <p>There was also the issue that the water looked quite different in the Oculus Quest 2 (i.e., blurrier) 
+                    than on a computer screen, so we had to go back and remove the initially applied Depth of Field effect 
+                    (Gaussian blur), and also take away the Color Adjustments we used in our first drafts. 
+                    A learning from this process is that finding information about how to create advanced graphics, like underwater 
+                    environments, can be rather complex and cumbersome, and might require a lot of prior knowledge.</p>
+
+                    <h5>Linnéa</h5>
+                  <p>Worked with the post-processing, created bubbles, and light beams.</p>
+
+                  <h5>Jacky</h5>
+                  <p>Worked on the ocean surface.</p>
+                </div>
+              </div> <!-- End Water and post-processing Box -->
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box">
+                  <h3>Audio</h3>
+                  <p>We created our own <b>Submergency soundtrack</b> and <b>sound effects</b> using Logic Pro. The soundtrack is played 
+                  as background audio throughout the whole experience. We have sound effects for the <b>swimming motion</b>, i.e., 
+                  a sound that is triggered when initiating a swim stroke, and a longer audio tail is audible as long as the user moves.</p>
+
+                  <h5>Linnéa</h5>
+                  <p>Created the soundtrack and sound effects.</p>
+
+                  <h5>Shiqi</h5>
+                  <p>Programmed the sounds to work with various interactions.</p>
+                </div>
+              </div> <!-- End Audio Box -->
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="icon-box">
+                  <h3>Swimming Tutorial</h3>
+                  <p>In the beginning of the process we used written instructions to let users know how to move, but we soon realised that
+                    communicating this novel interaction via text wasn't ideal. Therefore, we decided to create a swimming tutorial. This 
+                    included checkpoints, to let the user know what actions are possible (such as swimming in any direction or grabbing 
+                    water bottles). Using the Recorder Plugin, controller and hand tracking animations were recorded, so that the users 
+                    could see for themselves how to hold the controllers or move their hands.
+                  </p>
+
+                  <h5>Jacky</h5>
+                  <p>Responsible for creating the tutorial scene and a smooth scene transition.</p>
+                </div>
+              </div> <!-- End Tutorial Box -->
 
             </div>
 

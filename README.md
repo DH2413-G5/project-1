@@ -33,7 +33,9 @@ This repository is contains Project 1 for the course *DH2413 Advanced Graphics a
 
 
 ## How to install and run
-[*Add*]
+
+Download the APK from the Release page. Sideload the APK onto your Quest 2 to play.
+
 
 
 ## How to use the project
